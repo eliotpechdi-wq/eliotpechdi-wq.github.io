@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   B×C 1 — Nuit Bauhaus : jetons de design
+   --------------------------------------------------------------- */
+:root {
+  --bg: #0f0f0d; /* fond */
+  --fg: #efebe1; /* texte principal */
+  --muted: #a8a397; /* texte discret (≈7.6:1 sur --bg) */
+  --soft: #c9c4b8; /* texte secondaire */
+  --line: #2b2a26; /* filets */
+  --surface: #1a1a17; /* cartes, panneaux */
+  --red: #e0452f;
+  --blue: #3460e0;
+  --yellow: #f4c21b;
+  --cream: #efebe1;
+  --white: #ffffff;
+
+  /* Hauteur du header sticky (pour scroll-margin-top) */
+  --header-h: 64px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-h: 76px;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-soft: var(--soft);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-red: var(--red);
+  --color-blue: var(--blue);
+  --color-yellow: var(--yellow);
+  --color-cream: var(--cream);
+
+  --font-display: var(--font-fraunces), "Fraunces", Georgia, serif;
+  --font-sans: var(--font-bricolage), "Bricolage Grotesque", system-ui,
+    sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    overflow-x: clip;
+  }
+
+  /* Ancres : ne pas passer sous le header sticky */
+  [id] {
+    scroll-margin-top: var(--header-h);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 150ms ease;
+  }
+
+  a:hover {
+    opacity: 0.85;
+  }
+
+  /* Focus visible, contrasté sur fonds sombres comme colorés */
+  :focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .bg-yellow :focus-visible,
+  .bg-cream :focus-visible {
+    outline-color: var(--bg);
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  blockquote {
+    quotes: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
