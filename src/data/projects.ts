@@ -142,6 +142,57 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "gazon-racing-92",
+    num: "04",
+    title: "Un gazon sans microplastique",
+    titleEm: "microplastique",
+    field: "Matériaux & essais",
+    year: "2024",
+    summary:
+      "Trouver, pour le Racing 92, un remplissage de terrain synthétique sans microplastique qui se comporte comme la solution actuelle.",
+    role: "Chaîne d’analyse Matlab, écrite seul",
+    team: "Projet de groupe",
+    duration: "≈ 2 mois",
+    tools: ["Essais de compression", "Matlab"],
+    accent: "cream",
+    shape: "half",
+    cover: {
+      src: "/projets/gazon-racing-92/courbes-force-deplacement.png",
+      alt: "Courbes force–déplacement sur trois cycles de compression pour le substrat RC92 de référence, le Bio TK et le Pinefill.",
+      caption:
+        "Compression cyclique jusqu’à 2500 N : la référence RC92 face à deux alternatives (données d’essai retracées).",
+    },
+    steps: [
+      {
+        title: "Contexte",
+        body: "Le Racing 92 exploite deux terrains synthétiques dont le remplissage ne sera plus autorisé en 2031, car il contient des microplastiques. Le club voulait identifier des remplissages alternatifs au comportement mécanique identique à sa solution actuelle (RC92), considérée comme la référence, tout en respectant les exigences de World Rugby.",
+        image: {
+          src: "/projets/gazon-racing-92/protocole-essai-compression.png",
+          alt: "Schémas d’un échantillon au repos, comprimé puis décomprimé, photo de l’échantillon sous la presse et courbes effort–déplacement de trois cycles.",
+          caption: "Principe de l’essai : échantillon au repos, comprimé, puis décomprimé, sur 3 cycles (figure du rapport de groupe).",
+        },
+      },
+      {
+        title: "Démarche",
+        body: "Nous avons testé 17 substrats en compression confinée : 24 mm de matériau dans un tube de 7 cm de diamètre, 3 cycles à 40 mm/min jusqu’à 2500 N (0,65 MPa, la charge de la norme World Rugby). J’ai écrit seul la chaîne d’analyse Matlab : elle découpe chaque essai en cycles et calcule énergies dissipées, tassement, rigidités et raideurs, puis l’écart en % de chaque substrat par rapport au RC92.",
+        image: {
+          src: "/projets/gazon-racing-92/ecart-moyen-substrats.png",
+          alt: "Diagramme en barres de l’écart moyen en pourcentage de chaque substrat testé par rapport à la référence RC92.",
+          caption: "Écart moyen à la référence RC92 pour chaque substrat testé (sans pondération).",
+        },
+      },
+      {
+        title: "Résultat",
+        body: "Aucun produit seul ne reproduit le RC92 : le Bio TK est le plus proche (≈ 20 % d’écart moyen), mais il est seulement compostable. J’ai alors mis en œuvre le modèle de mélange proposé par notre encadrant, sur deux granulats Limonta, par pas de 1 mm d’épaisseur, pour viser la raideur du RC92 en décompression à 2500 N. Les 8 mélanges retenus s’écartent en théorie de ≈ 0,4 % à ≈ 4,2 % de la raideur de référence ; reste à les valider par des essais.",
+        image: {
+          src: "/projets/gazon-racing-92/ecart-raideur-melanges.png",
+          alt: "Diagramme en barres de l’écart théorique de raideur des huit mélanges proposés par rapport au RC92.",
+          caption: "Écart théorique de raideur des mélanges proposés par rapport au RC92.",
+        },
+      },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
