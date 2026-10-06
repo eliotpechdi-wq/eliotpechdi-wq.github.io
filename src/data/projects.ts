@@ -243,6 +243,57 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "san-lucia-off-grid",
+    num: "06",
+    title: "Une ville 100 % renouvelable",
+    titleEm: "renouvelable",
+    field: "Énergie · UQ",
+    year: "2025",
+    summary:
+      "Dimensionner le mix éolien et solaire d’une ville isolée fictive pour qu’elle vive hors réseau, heure par heure.",
+    role: "Analyse et dimensionnement, rapport individuel",
+    team: "Seul",
+    duration: "Quelques semaines",
+    tools: ["Excel", "Tableaux croisés dynamiques", "Profils horaires (8 760 h)"],
+    accent: "yellow",
+    shape: "square",
+    cover: {
+      src: "/projets/san-lucia-off-grid/demande-production-janvier-fevrier.png",
+      alt: "Courbes de demande et de production sur une journée moyenne de janvier-février : la production dépasse la demande le matin et passe en dessous le soir.",
+      caption:
+        "Janvier-février, journée moyenne : production dimensionnée (jaune) face à la demande (blanc). Valeurs de mon rapport, retracées.",
+    },
+    steps: [
+      {
+        title: "Contexte",
+        body: "Cours de Sustainable Energy à l’University of Queensland. Le sujet : San Lucia, une ville fictive qui veut quitter le réseau et vivre à 100 % d’éolien et de solaire, stockage compris.\n\nJ’ai commencé par la demande. Sur l’année : 1,90 TWh, soit 216,6 MW en moyenne, avec des pics à 9 h et 19 h. Janvier et juin-juillet sont les mois les plus chargés.",
+        image: {
+          src: "/projets/san-lucia-off-grid/demande-mensuelle.png",
+          alt: "Diagramme en barres de la demande mensuelle, entre 141 et 177 GWh ; janvier, juin et juillet sont les plus élevés.",
+          caption: "Demande mensuelle de San Lucia, retracée depuis les données horaires du sujet.",
+        },
+      },
+      {
+        title: "Démarche",
+        body: "Puis la production. Un site éolien de 5,6 MW tourne aussi la nuit ; un site solaire de 1 MW ne produit qu’en journée. La taille du stockage étant fixée, j’ai misé sur le plus régulier : environ 80 % d’éolien et 20 % de solaire.\n\nJ’ai compté un rendement aller-retour de 70 %, en supposant que toute l’énergie passe une fois par le stockage. Puis j’ai cherché le multiplicateur qui couvre les pires mois, janvier et février.",
+        image: {
+          src: "/projets/san-lucia-off-grid/profils-eolien-solaire.png",
+          alt: "Profils de puissance sur une journée moyenne : le site éolien produit entre 1,6 et 3,1 MW toute la journée, le site solaire monte à 0,66 MW vers midi.",
+          caption: "Journée moyenne d’un site éolien de 5,6 MW et d’un site solaire de 1 MW.",
+        },
+      },
+      {
+        title: "Résultat",
+        body: "Il faut 57 éoliennes de 5,6 MW et 57 unités solaires de 1 MW : 376,2 MW installés, dont 319,2 MW d’éolien. En janvier-février, la production couvre 97 % de la demande, 5 535 MWh par jour pour 5 688 MWh demandés.\n\nLe reste de l’année, le surplus du matin est énorme. J’ai proposé de le revendre au réseau. Et j’ai pointé une limite : stocker par pompage d’eau, dans un pays aussi sec, est sans doute une mauvaise idée. L’air comprimé est une piste.",
+        image: {
+          src: "/projets/san-lucia-off-grid/demande-production-annee.png",
+          alt: "Courbes de demande et de production sur une journée moyenne de l’année : large surplus de 6 h à 16 h, léger déficit en soirée.",
+          caption: "Journée moyenne sur l’année : gros surplus le matin, léger déficit le soir. Valeurs de mon rapport, retracées.",
+        },
+      },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
