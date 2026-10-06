@@ -193,6 +193,56 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "pied-prothetique",
+    num: "05",
+    title: "Un pied prothétique pédiatrique",
+    titleEm: "prothétique",
+    field: "Conception mécanique",
+    year: "2023",
+    summary:
+      "Choisir le couple matériau–procédé, concevoir sous CATIA et confronter essais et simulation pour un pied prothétique.",
+    role: "CAO complète sous CATIA",
+    team: "Équipe de 3",
+    duration: "≈ 3 mois",
+    tools: ["CES EduPack (Granta)", "CATIA", "Abaqus", "Matlab", "Excel"],
+    accent: "blue",
+    shape: "circle",
+    cover: {
+      src: "/projets/pied-prothetique/pied-rendu.png",
+      alt: "Rendu 3D du pied prothétique : platine de fixation carrée, lame évidée et avant-pied en forme de ressort.",
+      caption: "Version finale du pied, rendue depuis le fichier STL.",
+    },
+    steps: [
+      {
+        title: "Contexte",
+        body: "Bureau d’études de semestre 7, avec l’IBHGC des Arts et Métiers : concevoir un pied prothétique pour enfant, du choix du matériau jusqu’à la validation. Le cahier des charges croisait tenue mécanique, prix, empreinte carbone et faisabilité du procédé. L’enjeu : retrouver les courbes dynamiques mesurées sur des pieds en carbone.",
+        image: {
+          src: "/projets/pied-prothetique/pied-rendu-profil.png",
+          alt: "Vue de profil du pied prothétique montrant la lame évidée et l’avant-pied.",
+          caption: "Vue de profil : lame évidée et avant-pied, prototype imprimé en PLA.",
+        },
+      },
+      {
+        title: "Démarche",
+        body: "Avec CES EduPack (Granta), nous avons comparé contreplaqué, aciers, titane, PLA et composite carbone sur la rigidité, la densité, le prix et l’impact carbone. Le composite carbone ressortait comme la piste la plus prometteuse, avec l’infusion de résine comme procédé. J’ai ensuite réalisé toute la CAO du pied sous CATIA, pour un prototype imprimé en PLA, et nous avons traité sous Matlab des acquisitions de marche (marqueurs et plateformes de force) pour estimer angles et moments à la cheville.\n\nLa simulation, sous Abaqus, montre où le pied travaille : les contraintes se concentrent dans la partie verticale et au talon.",
+        image: {
+          src: "/projets/pied-prothetique/simulation-von-mises.png",
+          alt: "Maillage du pied prothétique sous Abaqus, coloré selon la contrainte de von Mises : bleu sur l’avant-pied, vert et jaune dans la lame et le talon.",
+          caption: "Simulation sous Abaqus : contraintes de von Mises dans le pied chargé.",
+        },
+      },
+      {
+        title: "Résultat",
+        body: "En groupe, nous avons validé le pied par simulation et par essais de compression. Les deux essais force–déplacement se superposent à la simulation jusqu’à environ 30 mm d’écrasement, et montent à environ 1300 N : bonne concordance.",
+        image: {
+          src: "/projets/pied-prothetique/essai-vs-simulation.png",
+          alt: "Courbes force–déplacement de deux essais comparées à une courbe de simulation, très proches jusqu’à 30 mm.",
+          caption: "Deux essais vs simulation du premier pied (données d’essai retracées).",
+        },
+      },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
