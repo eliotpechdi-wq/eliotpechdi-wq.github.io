@@ -294,6 +294,61 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "casita",
+    num: "07",
+    title: "Casita, un incident réglé en 24 h",
+    titleEm: "24 h",
+    field: "Produit · Entrepreneuriat",
+    year: "2025",
+    summary:
+      "Repenser le service client de la location courte durée en Australie, autour d’une promesse : 24 heures ouvrées entre le problème et sa résolution.",
+    role: "Participation au développement du service",
+    team: "Projet de groupe",
+    duration: "Un semestre",
+    tools: [
+      "Value Proposition Canvas",
+      "Parcours utilisateur",
+      "Dimensionnement de marché",
+      "Prototype d’application mobile",
+    ],
+    accent: "red",
+    shape: "quarter",
+    cover: {
+      src: "/projets/casita/parcours-incident-24h.png",
+      alt: "Logigramme du traitement d’un incident : tri entre incident mineur et majeur, intervention d’un artisan, relogement et remboursement si besoin, en 24 heures ouvrées au maximum.",
+      caption: "Le parcours d’un incident chez Casita : 24 heures ouvrées au maximum.",
+    },
+    steps: [
+      {
+        title: "Contexte",
+        body: "Projet d’innovation en groupe, pendant mon master à l’University of Queensland. Le sujet : l’expérience client dans la location courte durée.\n\nEn étudiant le marché australien et le parcours des voyageurs, nous avons vu où les plateformes existantes coincent : le service client et la gestion des incidents.",
+        image: {
+          src: "/projets/casita/dimensionnement-marche.png",
+          alt: "Cercles imbriqués du dimensionnement de marché, de 8 794 000 visiteurs par an à 400 000 visiteurs de plus de 35 ans, avec les chiffres clés de Brisbane.",
+          caption: "Dimensionnement du marché (sources citées sur la planche du projet).",
+        },
+      },
+      {
+        title: "Démarche",
+        body: "D’abord, la taille du marché. 8 794 000 visiteurs par an selon Tourism Research Australia (2024), dont 879 400 qui louent un logement et 400 000 de plus de 35 ans. Notre cible : 80 000 clients par an, soit 220 par jour. À Brisbane, on compte 15 000 annonces Airbnb.\n\nPuis la proposition de valeur, construite avec un Value Proposition Canvas : annonces vérifiées, hotline 24/7, relogement garanti, partenariats avec des services locaux.",
+        image: {
+          src: "/projets/casita/value-proposition-canvas.png",
+          alt: "Value Proposition Canvas complet : produits et services, créateurs de gains et réducteurs de peines face aux tâches, gains et peines du voyageur.",
+          caption: "Notre Value Proposition Canvas.",
+        },
+      },
+      {
+        title: "Résultat",
+        body: "Le cœur du service tient en une promesse : 24 heures ouvrées au maximum entre le problème et sa résolution. Un incident mineur déclenche l’envoi d’un artisan. Un incident majeur reçoit une réponse en moins de 4 h ; s’il ne peut pas être réglé en 24 h, le client est relogé et remboursé en partie.\n\nNous avons fini par un prototype intégré à une application mobile.",
+        image: {
+          src: "/projets/casita/traitement-incidents.png",
+          alt: "Détail du logigramme : un incident mineur mène à l’envoi d’un artisan ; un incident majeur mène à une réparation en moins de 24 h, ou à un relogement avec remboursement partiel.",
+          caption: "Incident mineur ou majeur : les deux chemins vers la résolution.",
+        },
+      },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
