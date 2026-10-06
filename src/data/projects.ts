@@ -54,6 +54,36 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "exail-prototypage",
+    num: "02",
+    title: "Débloquer des prototypes",
+    titleEm: "prototypes",
+    field: "Pro · Défense",
+    year: "2026",
+    summary:
+      "Reprendre des projets en retard ou bloqués dans une cellule de prototypage, et aller vite quand il le faut.",
+    role: "Ingénieur prototypage",
+    team: "Cellule transverse de prototypage",
+    duration: "6 mois",
+    tools: ["Études mécaniques", "Hydraulique", "Électronique", "Sous-traitance", "Essais"],
+    accent: "yellow",
+    shape: "square",
+    steps: [
+      {
+        title: "Contexte",
+        body: "Chez Exail, j’ai rejoint une cellule transverse de prototypage, dans un environnement de défense. Son travail : reprendre les projets en retard ou bloqués.\n\nLes dossiers arrivaient souvent incomplets. Il fallait d’abord comprendre ce qui coinçait.",
+      },
+      {
+        title: "Démarche",
+        body: "En six mois, j’ai repris une vingtaine de projets, de quelques k€ à 100 k€. Pour chacun : diagnostic du dossier, études mécaniques, hydrauliques ou électroniques, choix de réalisation, sous-traitants, puis essais.",
+      },
+      {
+        title: "Résultat",
+        body: "Le cas le plus parlant : un support caméra maritime, compact et rapide à déployer. Une semaine entre le besoin et l’essai en mer.\n\nJe l’ai conçu et fabriqué moi-même, avec un petit budget et des matériaux de réemploi. Puis je l’ai amélioré après les essais.",
+      },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
