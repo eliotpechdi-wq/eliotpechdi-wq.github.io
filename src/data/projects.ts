@@ -349,6 +349,56 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "frein-avion",
+    num: "08",
+    title: "Freiner un avion de 685 kg",
+    titleEm: "avion",
+    field: "Conception mécanique",
+    year: "2024",
+    summary:
+      "Concevoir en binôme l’ensemble de freinage d’un petit avion, du schéma cinématique au dimensionnement des vis et des roulements.",
+    role: "Modélisation des contraintes, choix des matériaux",
+    team: "Binôme",
+    duration: "Un semestre",
+    tools: ["CATIA", "Excel", "Schémas cinématiques"],
+    accent: "cream",
+    shape: "half",
+    cover: {
+      src: "/projets/frein-avion/coupe-aa-disque.png",
+      alt: "Coupe A-A du disque de frein à l’échelle 1:2, avec ses cotes de diamètre 70, 100 et 110 mm et six trous de vis.",
+      caption: "Coupe A-A du disque, échelle 1:2 : 6 vis M8 transmettent le couple de freinage.",
+    },
+    steps: [
+      {
+        title: "Contexte",
+        body: "Bureau d’études aux Arts et Métiers Paris, en binôme, sur un semestre : concevoir de zéro l’ensemble de freinage d’un petit avion.\n\nLe cahier des charges fixe le cadre. Un avion de 685 kg, un freinage qui commence à 53 m/s, une décélération maximale de 4 m/s², un disque entre 32 et 125 mm de diamètre.",
+        image: {
+          src: "/projets/frein-avion/cahier-des-charges.png",
+          alt: "Tableau du cahier des charges : masse 685 kg, vitesse 53 m/s, décélération 4 m/s², diamètre du disque de 32 à 125 mm, poussée résiduelle 400 N.",
+          caption: "Le cahier des charges du sujet, remis en forme.",
+        },
+      },
+      {
+        title: "Démarche",
+        body: "Nous avons dessiné 13 schémas cinématiques, de A à M, et noté chacun sur 3 critères : robustesse, montabilité, encombrement.\n\nEnsuite, le dimensionnement. Il faut transmettre 204 Nm de couple de freinage à la roue. Nous l’avons fait passer par 6 vis M8 sur un cercle de 65 mm de diamètre : 5 400 N d’effort à assurer par vis, avec un couple de serrage de 12,7 Nm.",
+        image: {
+          src: "/projets/frein-avion/schemas-cinematiques-variantes.png",
+          alt: "Quatre schémas cinématiques dessinés à la main, notés A, B, C et D, avec les liaisons en bleu et les roulements en vert.",
+          caption: "Quatre des 13 variantes de schéma cinématique, dessinées à la main.",
+        },
+      },
+      {
+        title: "Résultat",
+        body: "Pour les roulements, la masse de l’avion se répartit sur 2 roues. Montage en O, 60 mm entre les centres, roulements de 45 mm de diamètre extérieur : l’effort de précharge calculé est de 2 400 N, et c’est le roulement de gauche qui encaisse le plus.",
+        image: {
+          src: "/projets/frein-avion/coupe-roulements-montage-o.png",
+          alt: "Coupe technique de l’axe de roue avec deux roulements à rouleaux coniques montés en O, espacés de 60 mm.",
+          caption: "Coupe du montage des roulements en O, entraxe de 60 mm.",
+        },
+      },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
