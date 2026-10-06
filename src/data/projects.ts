@@ -84,6 +84,64 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "iot-machine-learning",
+    num: "03",
+    title: "Faire parler les capteurs",
+    titleEm: "capteurs",
+    field: "IoT & data",
+    year: "2024",
+    summary:
+      "Maintenance prédictive : des données capteurs jusqu’à un modèle qui reconnaît le régime de fonctionnement d’une machine.",
+    role: "Chaîne Python complète, écrite seul",
+    team: "Projet de groupe",
+    duration: "≈ 2 mois",
+    tools: [
+      "ESP32",
+      "MPU6050",
+      "Arduino",
+      "MQTT (Mosquitto)",
+      "Python",
+      "scikit-learn",
+      "Ripser / Persim",
+    ],
+    accent: "red",
+    shape: "quarter",
+    cover: {
+      src: "/projets/iot-machine-learning/matrice-confusion.png",
+      alt: "Matrice de confusion sur cinq classes de lowest à highest ; 69 fenêtres de test sur 72 sont sur la diagonale.",
+      caption: "Matrice de confusion sur le jeu de test : 69 fenêtres sur 72 bien classées.",
+    },
+    steps: [
+      {
+        title: "Contexte",
+        body: "Dans un module de data science pour l’industrie, nous avons d’abord monté une chaîne IoT complète. Un ESP32 lit l’accéléromètre et le gyroscope d’un MPU6050 et publie chaque axe en MQTT ; un broker Mosquitto et un client Python (paho-mqtt) enregistrent les mesures dans un CSV.",
+        image: {
+          src: "/projets/iot-machine-learning/mpu6050-acquisition.png",
+          alt: "Signaux d’accélération x, y et z bruts du MPU6050 avec une phase d’agitation puis un retour au repos.",
+          caption: "Accélérations brutes reçues via MQTT (≈ 2 580 échantillons par axe).",
+        },
+      },
+      {
+        title: "Démarche",
+        body: "Le projet de maintenance prédictive portait sur les séries temporelles d’un boîtier multicapteur Bosch, à classer selon 5 états de fonctionnement simulés, de « lowest » à « highest ». J’ai écrit seul toute la chaîne Python : découpe des signaux en fenêtres de 300 points, puis transformation de chacune en image de persistance (analyse topologique des données, ripser + persim) sur 9 grandeurs. Ces images alimentent une forêt aléatoire de 20 arbres, entraînée sur 80 % des fenêtres.",
+        image: {
+          src: "/projets/iot-machine-learning/images-persistance-tda.png",
+          alt: "Six images de persistance 20×20 calculées sur différentes grandeurs mesurées par le capteur.",
+          caption: "Images de persistance calculées sur une fenêtre de signal, une par grandeur.",
+        },
+      },
+      {
+        title: "Résultat",
+        body: "Sur les 20 % de fenêtres gardées pour le test, la forêt aléatoire classe correctement 69 fenêtres sur 72, soit environ 95 %. Les rares erreurs se font entre régimes voisins ; la classe « highest », avec très peu de données, reste la plus fragile.",
+        image: {
+          src: "/projets/iot-machine-learning/arbre-foret-aleatoire.png",
+          alt: "Arbre de décision d’une dizaine de niveaux, exporté depuis scikit-learn.",
+          caption: "Un des arbres de décision de la forêt aléatoire.",
+        },
+      },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
