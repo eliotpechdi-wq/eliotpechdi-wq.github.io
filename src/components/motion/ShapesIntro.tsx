@@ -1,6 +1,6 @@
 "use client";
 
-import { Children, isValidElement, type CSSProperties, type ReactNode } from "react";
+import { Children, isValidElement, useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import { motion, stagger as staggerFn, useReducedMotion, type Variants } from "motion/react";
 import { INSTANT, SPRING_POP } from "./shared";
 
@@ -21,7 +21,16 @@ export type ShapesIntroProps = {
   stagger?: number;
   /** Seconds before the first shape. Default 0.1. */
   delay?: number;
+  /**
+   * Play the entrance only once per visit: later mounts sharing this key
+   * (e.g. coming back to the home page) show the shapes in place directly.
+   * A full page reload plays it again.
+   */
+  playOnceKey?: string;
 };
+
+// Keys already played in this browser session (module scope survives client navigation).
+const played = new Set<string>();
 
 /*
  * Entrance per kind. A child can opt into a kind with `data-shape="circle"`
@@ -56,8 +65,14 @@ export function ShapesIntro({
   itemClassName,
   stagger = 0.07,
   delay = 0.1,
+  playOnceKey,
 }: ShapesIntroProps) {
   const reduce = useReducedMotion();
+  // Decided once at mount: every instance sharing the key on the first visit still animates.
+  const [skip] = useState(() => playOnceKey !== undefined && played.has(playOnceKey));
+  useEffect(() => {
+    if (playOnceKey) played.add(playOnceKey);
+  }, [playOnceKey]);
 
   const parent: Variants = {
     hidden: {},
@@ -65,7 +80,7 @@ export function ShapesIntro({
   };
 
   return (
-    <motion.div className={className} style={style} variants={parent} initial="hidden" animate="show">
+    <motion.div className={className} style={style} variants={parent} initial={skip ? false : "hidden"} animate="show">
       {Children.map(children, (child, i) => {
         if (child == null || typeof child === "boolean") return child;
         const kind = kindOf(child, i);

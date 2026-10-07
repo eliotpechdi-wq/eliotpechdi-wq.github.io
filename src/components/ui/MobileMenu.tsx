@@ -1,12 +1,20 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-
-export type NavLink = { href: string; label: string; cta?: boolean };
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { currentFor, type NavLink } from "./nav";
 
 /** Bouton burger + menu déroulant (< 768px). */
 export function MobileMenu({ links }: { links: NavLink[] }) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  // Le header vit dans le layout : on referme le menu à chaque changement de page.
+  const [shownPath, setShownPath] = useState(pathname);
+  if (shownPath !== pathname) {
+    setShownPath(pathname);
+    setOpen(false);
+  }
   const id = useId();
   const panelId = `menu-mobile-${id.replace(/:/g, "")}`;
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -71,29 +79,35 @@ export function MobileMenu({ links }: { links: NavLink[] }) {
       >
         <nav aria-label="Menu principal">
           <ul className="flex flex-col">
-            {links.map((l) =>
-              l.cta ? (
+            {links.map((l) => {
+              const current = currentFor(pathname, l.href);
+              return l.cta ? (
                 <li key={l.href} className="pt-6">
-                  <a
+                  <Link
                     href={l.href}
+                    aria-current={current}
                     onClick={() => setOpen(false)}
-                    className="inline-flex min-h-12 items-center rounded-full bg-yellow px-[22px] text-[15px] font-bold text-bg"
+                    className={`inline-flex min-h-12 items-center rounded-full bg-yellow px-[22px] text-[15px] font-bold text-bg ${
+                      current ? "ring-2 ring-fg ring-offset-2 ring-offset-bg" : ""
+                    }`}
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ) : (
                 <li key={l.href} className="border-b border-line">
-                  <a
+                  <Link
                     href={l.href}
+                    aria-current={current}
                     onClick={() => setOpen(false)}
-                    className="flex min-h-14 items-center font-display text-[32px] font-light tracking-[-0.02em]"
+                    className="flex min-h-14 items-center gap-3 font-display text-[32px] font-light tracking-[-0.02em]"
                   >
+                    {current && <span aria-hidden="true" className="inline-block size-3 rounded-full bg-red" />}
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
-              ),
-            )}
+              );
+            })}
           </ul>
         </nav>
       </div>

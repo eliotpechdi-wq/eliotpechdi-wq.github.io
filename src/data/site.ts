@@ -21,3 +21,7 @@ export const site: Site = {
     linkedin: "https://www.linkedin.com/in/eliot-pechdimaldji",
   },
 };
+
+// Phrase d'accroche sous le titre (non présente dans le contrat `Site`).
+export const INTRO =
+  "Du prototype physique au SaaS IA. Chaque projet est raconté comme un récit : un problème, des essais, un résultat.";

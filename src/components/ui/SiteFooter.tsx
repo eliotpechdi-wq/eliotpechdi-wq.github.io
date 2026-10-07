@@ -1,14 +1,20 @@
 import { Reveal } from "@/components/motion";
 import { site } from "@/data/site";
 
-/** Pied de page « Parlons-en. » — les liens vides (email, LinkedIn) sont masqués. */
-export function SiteFooter() {
+/** Liens de contact renseignés (e-mail, GitHub, LinkedIn) ; les vides sont masqués. */
+export function contactLinks() {
   const { email, github, linkedin } = site.links;
-  const links = [
+  return [
     email && { href: `mailto:${email}`, label: "E-mail" },
     github && { href: github, label: "GitHub" },
     linkedin && { href: linkedin, label: "LinkedIn" },
   ].filter((l): l is { href: string; label: string } => Boolean(l));
+}
+
+/** Pied de page « Parlons-en. » */
+export function SiteFooter() {
+  const { email } = site.links;
+  const links = contactLinks();
 
   const headline = (
     <>
