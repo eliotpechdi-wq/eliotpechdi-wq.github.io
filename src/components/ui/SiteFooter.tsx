@@ -1,25 +1,26 @@
 import { Reveal } from "@/components/motion";
 import { site } from "@/data/site";
+import type { Dictionary } from "@/i18n";
+import { TitleWithEm } from "./text";
 
 /** Liens de contact renseignés (e-mail, GitHub, LinkedIn) ; les vides sont masqués. */
-export function contactLinks() {
+export function contactLinks(labels: Dictionary["footer"]["links"]) {
   const { email, github, linkedin } = site.links;
   return [
-    email && { href: `mailto:${email}`, label: "E-mail" },
-    github && { href: github, label: "GitHub" },
-    linkedin && { href: linkedin, label: "LinkedIn" },
+    email && { href: `mailto:${email}`, label: labels.email },
+    github && { href: github, label: labels.github },
+    linkedin && { href: linkedin, label: labels.linkedin },
   ].filter((l): l is { href: string; label: string } => Boolean(l));
 }
 
 /** Pied de page « Parlons-en. » */
-export function SiteFooter() {
+export function SiteFooter({ dict }: { dict: Dictionary }) {
   const { email } = site.links;
-  const links = contactLinks();
+  const links = contactLinks(dict.footer.links);
 
+  // Le point final en italique jaune (footer.headlineEm), comme le titleEm des titres.
   const headline = (
-    <>
-      Parlons-en<em className="text-yellow">.</em>
-    </>
+    <TitleWithEm title={dict.footer.headline} em={dict.footer.headlineEm} emClassName="text-yellow" />
   );
 
   return (

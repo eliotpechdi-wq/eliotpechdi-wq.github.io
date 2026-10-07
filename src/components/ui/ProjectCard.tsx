@@ -1,5 +1,6 @@
 import { HoverCard, HoverReveal, HoverShape } from "@/components/motion";
 import type { Project } from "@/data/types";
+import { localePath, t, type Dictionary, type Locale } from "@/i18n";
 import { accentStyles } from "./accent";
 import { Shape } from "./Shape";
 import { TitleWithEm } from "./text";
@@ -8,12 +9,12 @@ import { TitleWithEm } from "./text";
  * Carte projet (composant serveur) : <HoverCard> rend le lien, soulève la
  * carte au survol / focus clavier, fait tourner la forme et révèle la couverture.
  */
-export function ProjectCard({ project: p }: { project: Project }) {
+export function ProjectCard({ project: p, lang, dict }: { project: Project; lang: Locale; dict: Dictionary }) {
   const a = accentStyles[p.accent];
 
   return (
     <HoverCard
-      href={`/projets/${p.slug}/`}
+      href={localePath(lang, `/projets/${p.slug}/`)}
       className="group flex h-full flex-col overflow-hidden rounded-3xl bg-surface md:rounded-[32px]"
     >
       <div
@@ -39,7 +40,7 @@ export function ProjectCard({ project: p }: { project: Project }) {
         )}
 
         <span className="absolute left-4 top-3.5 font-display text-[17px] italic md:left-5 md:top-5 md:text-xl">
-          N°&nbsp;{p.num}
+          {t(dict.common.projectNumber, { num: p.num })}
         </span>
       </div>
 

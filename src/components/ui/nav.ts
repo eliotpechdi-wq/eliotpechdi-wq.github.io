@@ -1,17 +1,24 @@
+import { localePath, type Locale } from "@/i18n/config";
+
 export type NavLink = { href: string; label: string; cta?: boolean };
 
 /** Navigation principale, partagée par le header desktop et le menu mobile. */
-export const NAV: NavLink[] = [
-  { href: "/projets/", label: "Projets" },
-  { href: "/profil/", label: "Profil" },
-  { href: "/contact/", label: "Me contacter", cta: true },
-];
+export function navLinks(
+  lang: Locale,
+  labels: { projects: string; profile: string; contact: string },
+): NavLink[] {
+  return [
+    { href: localePath(lang, "/projets/"), label: labels.projects },
+    { href: localePath(lang, "/profil/"), label: labels.profile },
+    { href: localePath(lang, "/contact/"), label: labels.contact, cta: true },
+  ];
+}
 
 const trim = (path: string) => path.replace(/\/+$/, "");
 
 /**
  * Valeur d'aria-current d'un lien : "page" sur la page elle-même, "true" dans
- * sa rubrique (ex. Projets sur /projets/mon-projet/), sinon rien.
+ * sa rubrique (ex. Projets sur /fr/projets/mon-projet/), sinon rien.
  */
 export function currentFor(pathname: string, href: string): "page" | "true" | undefined {
   const p = trim(pathname);

@@ -1,7 +1,16 @@
-import { projects } from "@/data/projects";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getProjects } from "@/data/projects";
 import { HoverCard, HoverShape, Marquee, Reveal, ShapesIntro } from "@/components/motion";
-import { INTRO, site } from "@/data/site";
 import { SiteFooter } from "@/components/ui/SiteFooter";
+import { getDictionary, hasLocale, localePath } from "@/i18n";
+import { alternatesFor } from "@/i18n/metadata";
+
+export async function generateMetadata(props: PageProps<"/[lang]">): Promise<Metadata> {
+  const { lang } = await props.params;
+  if (!hasLocale(lang)) return {};
+  return { alternates: alternatesFor(lang) };
+}
 
 /** Tagline : dernier mot en italique jaune, retour à la ligne (desktop) avant l'avant-dernier mot. */
 function Tagline({ text }: { text: string }) {
@@ -26,11 +35,16 @@ function Tagline({ text }: { text: string }) {
   );
 }
 
-// Disciplines du bandeau défilant (dédoublonnées depuis les projets).
-const BAND = [...new Set(projects.map((p) => p.field))];
 const BAND_MARKS = ["rounded-full bg-red", "bg-yellow", "rounded-[100%_0_0_0] bg-blue", "rounded-full bg-cream"];
 
-export default function Home() {
+export default async function Home(props: PageProps<"/[lang]">) {
+  const { lang } = await props.params;
+  if (!hasLocale(lang)) notFound();
+  const dict = getDictionary(lang);
+  const { site } = dict;
+  // Disciplines du bandeau défilant (dédoublonnées depuis les projets).
+  const band = [...new Set(getProjects(lang).map((p) => p.field))];
+
   return (
     <>
       <main id="contenu">
@@ -48,7 +62,7 @@ export default function Home() {
               <Tagline text={site.tagline} />
             </h1>
             <p className="m-0 hidden max-w-[500px] text-xl leading-normal text-soft md:block">
-              {INTRO}
+              {site.intro}
             </p>
 
             {/* Bandeau de formes (mobile) */}
@@ -67,10 +81,10 @@ export default function Home() {
 
             {/* Accès aux projets : pastille jaune + disque rouge dont la flèche pivote au survol */}
             <HoverCard
-              href="/projets/"
+              href={localePath(lang, "/projets/")}
               className="inline-flex min-h-14 items-center gap-4 self-start rounded-full bg-yellow py-1.5 pl-6 pr-1.5 text-[17px] font-bold text-bg md:min-h-[72px] md:gap-6 md:py-2 md:pl-9 md:pr-2 md:text-xl"
             >
-              Voir mes projets
+              {dict.home.hero.cta}
               <HoverShape
                 rotate={-45}
                 scale={1.06}
@@ -91,7 +105,7 @@ export default function Home() {
               <div data-shape="quarter" className="h-full w-full rounded-[100%_0_0_0] bg-blue" />
               <div data-shape="circle" className="h-full w-full rounded-full bg-red" />
               <div data-shape="bar" className="flex h-full w-full items-end justify-end rounded-[0_0_0_100%] bg-cream p-5">
-                <span className="font-display text-[22px] italic text-bg">vol. 01</span>
+                <span className="font-display text-[22px] italic text-bg">{dict.home.hero.volume}</span>
               </div>
               <div data-shape="square" className="h-full w-full bg-yellow" />
             </ShapesIntro>
@@ -101,7 +115,7 @@ export default function Home() {
         {/* ——— Bandeau des disciplines ——— */}
         <div aria-hidden="true" className="border-y border-line">
           <Marquee speed={40} className="py-5 md:py-7">
-            {BAND.map((item, i) => (
+            {band.map((item, i) => (
               <span
                 key={item}
                 className="inline-flex items-center gap-8 pr-8 font-display text-[28px] font-light italic tracking-[-0.02em] md:gap-12 md:pr-12 md:text-[44px]"
@@ -114,7 +128,7 @@ export default function Home() {
         </div>
       </main>
 
-      <SiteFooter />
+      <SiteFooter dict={dict} />
     </>
   );
 }

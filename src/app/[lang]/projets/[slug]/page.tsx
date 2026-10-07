@@ -2,24 +2,29 @@ import { Reveal, ShapesIntro } from "@/components/motion";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProject, projects } from "@/data/projects";
+import { getProject, getProjects, projectSlugs } from "@/data/projects";
 import type { Shape as ShapeName } from "@/data/types";
 import { accentStyles, type ColorName } from "@/components/ui/accent";
 import { Shape } from "@/components/ui/Shape";
 import { TitleWithEm, paragraphs, romanStep, withGuillemets } from "@/components/ui/text";
+import { getDictionary, hasLocale, localePath, t } from "@/i18n";
+import { alternatesFor } from "@/i18n/metadata";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  return projectSlugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata(props: PageProps<"/projets/[slug]">): Promise<Metadata> {
-  const project = getProject((await props.params).slug);
+export async function generateMetadata(props: PageProps<"/[lang]/projets/[slug]">): Promise<Metadata> {
+  const { lang, slug } = await props.params;
+  if (!hasLocale(lang)) return {};
+  const project = getProject(lang, slug);
   if (!project) return {};
   return {
     title: project.title,
     description: project.summary,
+    alternates: alternatesFor(lang, `/projets/${project.slug}/`),
     openGraph: project.cover ? { images: [{ url: project.cover.src, alt: project.cover.alt }] } : undefined,
   };
 }
@@ -31,10 +36,14 @@ const STEP_SHAPES: { shape: ShapeName; color: ColorName }[] = [
   { shape: "quarter", color: "blue" },
 ];
 
-export default async function ProjectPage(props: PageProps<"/projets/[slug]">) {
-  const { slug } = await props.params;
-  const project = getProject(slug);
+export default async function ProjectPage(props: PageProps<"/[lang]/projets/[slug]">) {
+  const { lang, slug } = await props.params;
+  if (!hasLocale(lang)) notFound();
+  const project = getProject(lang, slug);
   if (!project) notFound();
+  const dict = getDictionary(lang);
+  const { project: ui } = dict;
+  const projects = getProjects(lang);
 
   const index = projects.findIndex((p) => p.slug === project.slug);
   const total = String(projects.length).padStart(2, "0");
@@ -43,25 +52,26 @@ export default async function ProjectPage(props: PageProps<"/projets/[slug]">) {
   const [bigColor, quarterColor] = a.heroShapes;
 
   const meta = [
-    { label: "Rôle", value: project.role },
-    { label: "Équipe", value: project.team },
-    { label: "Durée", value: project.duration },
-    { label: "Outils", value: project.tools.join(", ") },
+    { label: ui.facts.role, value: project.role },
+    { label: ui.facts.team, value: project.team },
+    { label: ui.facts.duration, value: project.duration },
+    { label: ui.facts.tools, value: project.tools.join(", ") },
   ].filter((m) => m.value);
 
   return (
     <>
       <main id="contenu">
         <nav
-          aria-label="Navigation du projet"
+          aria-label={ui.nav.label}
           className="mx-auto flex max-w-[1360px] items-center justify-between gap-1 px-3 py-1 text-[15px] font-semibold md:gap-2 md:px-6"
         >
-          <Link href="/projets/" className="inline-flex min-h-11 items-center px-2 md:px-4">
-            ←&nbsp;<span className="hidden sm:inline">Tous les projets</span>
-            <span className="sm:hidden">Projets</span>
+          <Link href={localePath(lang, "/projets/")} className="inline-flex min-h-11 items-center px-2 md:px-4">
+            ←&nbsp;<span className="hidden sm:inline">{ui.nav.all}</span>
+            <span className="sm:hidden">{ui.nav.allShort}</span>
           </Link>
           <span className="inline-flex min-h-11 items-center px-2 text-muted md:px-4">
-            <span className="sr-only">Projet </span>N°&nbsp;{project.num}&nbsp;/&nbsp;{total}
+            <span className="sr-only">{ui.nav.positionPrefix}</span>
+            {t(ui.nav.position, { num: project.num, total })}
           </span>
         </nav>
 
@@ -90,7 +100,7 @@ export default async function ProjectPage(props: PageProps<"/projets/[slug]">) {
                           rel="noopener"
                           className="inline-flex min-h-11 items-center rounded-full border-[1.5px] border-current px-5"
                         >
-                          Code source ↗
+                          {ui.links.repo}
                         </a>
                       </li>
                     )}
@@ -101,7 +111,7 @@ export default async function ProjectPage(props: PageProps<"/projets/[slug]">) {
                           rel="noopener"
                           className="inline-flex min-h-11 items-center rounded-full border-[1.5px] border-current px-5"
                         >
-                          Démo ↗
+                          {ui.links.demo}
                         </a>
                       </li>
                     )}
@@ -136,7 +146,7 @@ export default async function ProjectPage(props: PageProps<"/projets/[slug]">) {
           </section>
 
           {/* ——— Bandeau méta ——— */}
-          <section aria-label="Fiche du projet" className="mx-auto max-w-[1360px] px-5 md:px-10">
+          <section aria-label={ui.facts.label} className="mx-auto max-w-[1360px] px-5 md:px-10">
             <Reveal>
             <dl className="m-0 grid grid-cols-1 border-b border-line sm:grid-cols-2 lg:grid-cols-4">
               {meta.map((m, i) => (
@@ -178,7 +188,7 @@ export default async function ProjectPage(props: PageProps<"/projets/[slug]">) {
                   </div>
                   <figcaption className="mt-3 flex justify-end gap-3 text-sm text-muted">
                     {project.cover.caption && <span>{project.cover.caption}</span>}
-                    <span className="font-display text-lg italic">fig. 01</span>
+                    <span className="font-display text-lg italic">{ui.figure}</span>
                   </figcaption>
                 </figure>
               </Reveal>
@@ -187,7 +197,7 @@ export default async function ProjectPage(props: PageProps<"/projets/[slug]">) {
 
           {/* ——— Étapes ——— */}
           <section
-            aria-label="Le récit du projet"
+            aria-label={ui.story}
             className={`mx-auto flex max-w-[1360px] flex-col gap-16 px-5 pb-20 md:gap-24 md:px-10 md:pb-[120px] ${
               project.cover ? "pt-8 md:pt-12" : "pt-14 md:pt-24"
             }`}
@@ -244,10 +254,10 @@ export default async function ProjectPage(props: PageProps<"/projets/[slug]">) {
 
           {/* ——— Citation ——— */}
           {project.quote && (
-            <section aria-label="Ce que j'en retiens" className="mx-auto max-w-[1360px] px-5 pb-20 md:px-10 md:pb-[120px]">
+            <section aria-label={ui.quote} className="mx-auto max-w-[1360px] px-5 pb-20 md:px-10 md:pb-[120px]">
               <Reveal>
               <blockquote className="m-0 rounded-3xl bg-yellow p-8 font-display text-[28px] font-light italic leading-[1.2] tracking-[-0.015em] text-bg md:rounded-[32px] md:p-16 md:text-[44px]">
-                <p className="m-0">{withGuillemets(project.quote)}</p>
+                <p className="m-0">{withGuillemets(project.quote, dict.common.quote)}</p>
               </blockquote>
               </Reveal>
             </section>
@@ -256,12 +266,12 @@ export default async function ProjectPage(props: PageProps<"/projets/[slug]">) {
 
         {/* ——— Projet suivant ——— */}
         <Link
-          href={`/projets/${next.slug}/`}
+          href={localePath(lang, `/projets/${next.slug}/`)}
           className="block bg-red text-white focus-visible:outline-current focus-visible:-outline-offset-8"
         >
           <div className="mx-auto flex max-w-[1360px] flex-wrap items-end justify-between gap-6 px-5 py-14 md:px-10 md:py-20">
             <div className="flex min-w-0 flex-col gap-3">
-              <span className="text-sm font-semibold">Projet suivant · N°&nbsp;{next.num}</span>
+              <span className="text-sm font-semibold">{t(ui.next, { num: next.num })}</span>
               <span className="break-words font-display text-[clamp(40px,11vw,44px)] font-light leading-[0.95] tracking-[-0.035em] md:text-[clamp(44px,6vw,96px)]">
                 <TitleWithEm title={next.title} em={next.titleEm} />
               </span>
