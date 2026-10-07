@@ -1,0 +1,455 @@
+{
+  "common": {
+    "skipToContent": "Skip to content",
+    "projectNumber": "No. {num}",
+    "quote": "“{text}”"
+  },
+  "lang": {
+    "label": "Language",
+    "switchLabel": "Lire cette page en français"
+  },
+  "nav": {
+    "label": "Main navigation",
+    "projects": "Projects",
+    "profile": "Profile",
+    "contact": "Get in touch",
+    "menu": {
+      "label": "Main menu",
+      "open": "Open menu",
+      "close": "Close menu"
+    }
+  },
+  "site": {
+    "role": "Product Engineer & Applied AI",
+    "school": "Arts et Métiers",
+    "city": "Paris",
+    "tagline": "Ideas that take shape.",
+    "intro": "From physical prototypes to AI SaaS. Each project is told as a story: a problem, a few attempts, a result.",
+    "quote": "Scope fast, decide what to build first, prove it by testing.",
+    "about": "An Arts et Métiers engineer, I move between physical prototypes and AI software. At Exail, I designed, built and sea-tested a camera mount in a single week. Today, I’m the sole engineer on a SaaS product built with AI, which I lead from scoping to beta.",
+    "lookingFor": "Permanent, fixed-term or freelance"
+  },
+  "home": {
+    "hero": {
+      "cta": "See my projects",
+      "volume": "vol. 01"
+    }
+  },
+  "projects": {
+    "title": "The projects",
+    "titleEm": "projects",
+    "count": "{count} stories",
+    "items": {
+      "monaco-marine-refit": {
+        "title": "Custom-made parts for yacht refits",
+        "titleEm": "Custom-made",
+        "field": "Work · Yacht refit",
+        "summary": "Seven months at a shipyard: surveys, 3D modelling and follow-up on some twenty refit jobs, from €30k to €650k.",
+        "role": "Assistant refit project manager",
+        "team": "With the workshop, the naval architect and the client",
+        "duration": "7 months (internship)",
+        "tools": [
+          "Fusion 360",
+          "On-site measurements",
+          "Technical drawings",
+          "Subcontracting",
+          "Quotes"
+        ],
+        "cover": {
+          "alt": "3D render of a six-cylinder Scania engine sitting on its welded steel cradle, with the reversing gearbox at the back.",
+          "caption": "Scania repowering: the engine sitting on its welded steel cradle, modelled in Fusion 360."
+        },
+        "steps": [
+          {
+            "title": "Context",
+            "body": "Monaco Marine is a shipyard specialising in the refit and heavy maintenance of yachts and performance sailboats. I followed some twenty jobs there, from €30k to €650k, including a complete €400k repowering.\n\nMy role: feasibility studies, measurements in the workshop, 3D modelling in Fusion 360, consulting subcontractors and preparing quotes. And acting as the link between the client, the workshop, the naval architect and the technical management.",
+            "image": {
+              "alt": "Left, a photo of the bow thruster tunnel under the hull; right, the support part modelled in 3D.",
+              "caption": "The bow thruster tunnel on the boat, and the support part I modelled."
+            }
+          },
+          {
+            "title": "Approach",
+            "body": "There is often no drawing to start from. For the bow thruster support, I started from measurements taken on the boat. I modelled the part, checked how the loads were transferred, then it was fabricated and welded.\n\nSame method for the welded engine cradles, the adaptation of shaft lines and the addition of hydraulic power take-offs: measure, model, draw up the plans, get it made.",
+            "image": {
+              "alt": "Dimensioned drawing of a circular welded cap in 316 stainless steel: three views, an A-A section and a title block.",
+              "caption": "Drawing of a welded cap in 316 stainless steel, general tolerance ±0.1 mm."
+            }
+          },
+          {
+            "title": "Result",
+            "body": "The transport cradle and its reinforcements: designed in under a week, then fabricated and fitted under the hull.\n\nI also prepared a twin-engine repowering and the replacement of a keel damaged in an accident. There, everything comes down to integration on board, working with the naval architect, the installer and the foundry.",
+            "image": {
+              "alt": "Left, a photo of a white metal cradle under the hull of a sailboat sitting on a trailer; right, its 3D model.",
+              "caption": "The transport cradle under the hull, next to its 3D model."
+            }
+          }
+        ]
+      },
+      "exail-prototypage": {
+        "title": "Getting prototypes unstuck",
+        "titleEm": "prototypes",
+        "field": "Work · Defence",
+        "summary": "Taking over late or stalled projects in a prototyping unit, and moving fast when it counts.",
+        "role": "Prototyping engineer",
+        "team": "Cross-functional prototyping unit",
+        "duration": "6 months",
+        "tools": [
+          "Mechanical design",
+          "Hydraulics",
+          "Electronics",
+          "Subcontracting",
+          "Testing"
+        ],
+        "steps": [
+          {
+            "title": "Context",
+            "body": "At Exail, I joined a cross-functional prototyping unit in a defence environment. Its job: take over projects that were running late or had stalled.\n\nThe files often arrived incomplete. The first step was to understand what was holding things up."
+          },
+          {
+            "title": "Approach",
+            "body": "In six months, I took over some twenty projects, ranging from a few thousand euros to €100k. For each one: a review of the file, mechanical, hydraulic or electronic design work, build choices, subcontractors, then testing."
+          },
+          {
+            "title": "Result",
+            "body": "The most telling case: a compact maritime camera mount that can be deployed quickly. One week from the initial need to the sea trial.\n\nI designed and built it myself, on a small budget and with reused materials. Then I improved it after the trials."
+          }
+        ]
+      },
+      "iot-machine-learning": {
+        "title": "Making sensors talk",
+        "titleEm": "sensors",
+        "field": "IoT & data",
+        "summary": "Predictive maintenance: from sensor data to a model that recognises a machine’s operating mode.",
+        "role": "Full Python pipeline, written solo",
+        "team": "Group project",
+        "duration": "≈ 2 months",
+        "tools": [
+          "ESP32",
+          "MPU6050",
+          "Arduino",
+          "MQTT (Mosquitto)",
+          "Python",
+          "scikit-learn",
+          "Ripser / Persim"
+        ],
+        "cover": {
+          "alt": "Confusion matrix over five classes from lowest to highest; 69 of the 72 test windows sit on the diagonal.",
+          "caption": "Confusion matrix on the test set: 69 out of 72 windows correctly classified."
+        },
+        "steps": [
+          {
+            "title": "Context",
+            "body": "In a data science module for industry, we started by building a complete IoT pipeline. An ESP32 reads the accelerometer and gyroscope of an MPU6050 and publishes each axis over MQTT; a Mosquitto broker and a Python client (paho-mqtt) log the measurements to a CSV file.",
+            "image": {
+              "alt": "Raw x, y and z acceleration signals from the MPU6050, with a shaking phase followed by a return to rest.",
+              "caption": "Raw accelerations received over MQTT (≈ 2,580 samples per axis)."
+            }
+          },
+          {
+            "title": "Approach",
+            "body": "The predictive maintenance project used time series from a Bosch multi-sensor unit, to be classified into 5 simulated operating states, from “lowest” to “highest”. I wrote the entire Python pipeline on my own: slicing the signals into 300-point windows, then turning each window into a persistence image (topological data analysis, ripser + persim) across 9 measured quantities. These images feed a 20-tree random forest, trained on 80% of the windows.",
+            "image": {
+              "alt": "Six 20×20 persistence images computed on different quantities measured by the sensor.",
+              "caption": "Persistence images computed on one signal window, one per quantity."
+            }
+          },
+          {
+            "title": "Result",
+            "body": "On the 20% of windows held out for testing, the random forest correctly classifies 69 out of 72, or about 95%. The few errors occur between neighbouring modes; the “highest” class, with very little data, remains the weakest.",
+            "image": {
+              "alt": "Decision tree about ten levels deep, exported from scikit-learn.",
+              "caption": "One of the decision trees in the random forest."
+            }
+          }
+        ]
+      },
+      "gazon-racing-92": {
+        "title": "Artificial turf without microplastics",
+        "titleEm": "microplastics",
+        "field": "Materials & testing",
+        "summary": "Finding a microplastic-free infill for Racing 92’s artificial pitches that behaves like the current one.",
+        "role": "Matlab analysis pipeline, written solo",
+        "team": "Group project",
+        "duration": "≈ 2 months",
+        "tools": [
+          "Compression testing",
+          "Matlab"
+        ],
+        "cover": {
+          "alt": "Force–displacement curves over three compression cycles for the RC92 reference infill, Bio TK and Pinefill.",
+          "caption": "Cyclic compression up to 2,500 N: the RC92 reference against two alternatives (test data replotted)."
+        },
+        "steps": [
+          {
+            "title": "Context",
+            "body": "Racing 92 runs two artificial pitches whose infill will no longer be allowed from 2031, because it contains microplastics. The club wanted to identify alternative infills with the same mechanical behaviour as its current solution (RC92), taken as the reference, while meeting World Rugby requirements.",
+            "image": {
+              "alt": "Diagrams of a sample at rest, compressed then released, a photo of the sample under the press and force–displacement curves over three cycles.",
+              "caption": "How the test works: sample at rest, compressed, then released, over 3 cycles (figure from the group report)."
+            }
+          },
+          {
+            "title": "Approach",
+            "body": "We tested 17 infills in confined compression: 24 mm of material in a tube 7 cm in diameter, 3 cycles at 40 mm/min up to 2,500 N (0.65 MPa, the load set by the World Rugby standard). I wrote the Matlab analysis pipeline on my own: it splits each test into cycles and computes dissipated energy, compaction, rigidity and stiffness, then each infill’s percentage deviation from RC92.",
+            "image": {
+              "alt": "Bar chart of the mean percentage deviation of each tested infill from the RC92 reference.",
+              "caption": "Mean deviation from the RC92 reference for each tested infill (unweighted)."
+            }
+          },
+          {
+            "title": "Result",
+            "body": "No single product reproduces RC92: Bio TK comes closest (≈ 20% mean deviation), but it is only compostable. I then implemented the blend model suggested by our supervisor, using two Limonta granulates in 1 mm thickness steps, to match RC92’s stiffness on unloading at 2,500 N. In theory, the 8 blends selected deviate from the reference stiffness by ≈ 0.4% to ≈ 4.2%; they still need to be validated by testing.",
+            "image": {
+              "alt": "Bar chart of the theoretical stiffness deviation of the eight proposed blends from RC92.",
+              "caption": "Theoretical stiffness deviation of the proposed blends from RC92."
+            }
+          }
+        ]
+      },
+      "pied-prothetique": {
+        "title": "A paediatric prosthetic foot",
+        "titleEm": "prosthetic",
+        "field": "Mechanical design",
+        "summary": "Choosing the material–process pairing, designing in CATIA and comparing tests with simulation for a prosthetic foot.",
+        "role": "Full CAD in CATIA",
+        "team": "Team of 3",
+        "duration": "≈ 3 months",
+        "tools": [
+          "CES EduPack (Granta)",
+          "CATIA",
+          "Abaqus",
+          "Matlab",
+          "Excel"
+        ],
+        "cover": {
+          "alt": "3D render of the prosthetic foot: square mounting plate, hollowed-out blade and spring-shaped forefoot.",
+          "caption": "Final version of the foot, rendered from the STL file."
+        },
+        "steps": [
+          {
+            "title": "Context",
+            "body": "A semester 7 design project with the IBHGC lab at Arts et Métiers: designing a prosthetic foot for a child, from material selection through to validation. The specification balanced mechanical strength, price, carbon footprint and process feasibility. The challenge: match the dynamic curves measured on carbon feet.",
+            "image": {
+              "alt": "Side view of the prosthetic foot showing the hollowed-out blade and the forefoot.",
+              "caption": "Side view: hollowed-out blade and forefoot, prototype printed in PLA."
+            }
+          },
+          {
+            "title": "Approach",
+            "body": "Using CES EduPack (Granta), we compared plywood, steels, titanium, PLA and carbon composite on stiffness, density, price and carbon impact. Carbon composite came out as the most promising option, with resin infusion as the process. I then did all the CAD for the foot in CATIA, for a PLA-printed prototype, and we processed gait recordings (markers and force plates) in Matlab to estimate ankle angles and moments.\n\nThe Abaqus simulation shows where the foot does its work: stresses concentrate in the vertical section and at the heel.",
+            "image": {
+              "alt": "Mesh of the prosthetic foot in Abaqus, coloured by von Mises stress: blue on the forefoot, green and yellow in the blade and heel.",
+              "caption": "Abaqus simulation: von Mises stresses in the loaded foot."
+            }
+          },
+          {
+            "title": "Result",
+            "body": "As a group, we validated the foot through simulation and compression tests. The two force–displacement tests line up with the simulation up to about 30 mm of compression, and reach about 1,300 N: a good match.",
+            "image": {
+              "alt": "Force–displacement curves from two tests compared with a simulation curve, very close up to 30 mm.",
+              "caption": "Two tests vs simulation for the first foot (test data replotted)."
+            }
+          }
+        ]
+      },
+      "san-lucia-off-grid": {
+        "title": "A 100% renewable city",
+        "titleEm": "renewable",
+        "field": "Energy · UQ",
+        "summary": "Sizing the wind and solar mix of a fictional isolated city so it can run off-grid, hour by hour.",
+        "role": "Analysis and sizing, individual report",
+        "team": "Solo",
+        "duration": "A few weeks",
+        "tools": [
+          "Excel",
+          "Pivot tables",
+          "Hourly profiles (8,760 h)"
+        ],
+        "cover": {
+          "alt": "Demand and generation curves for an average January–February day: generation exceeds demand in the morning and falls below it in the evening.",
+          "caption": "January–February, average day: sized generation (yellow) against demand (white). Figures from my report, replotted."
+        },
+        "steps": [
+          {
+            "title": "Context",
+            "body": "Sustainable Energy course at the University of Queensland. The brief: San Lucia, a fictional city that wants to leave the grid and run on 100% wind and solar, storage included.\n\nI started with demand. Over the year: 1.90 TWh, or 216.6 MW on average, with peaks at 9 am and 7 pm. January and June–July are the busiest months.",
+            "image": {
+              "alt": "Bar chart of monthly demand, between 141 and 177 GWh; January, June and July are the highest.",
+              "caption": "San Lucia’s monthly demand, replotted from the hourly data provided in the brief."
+            }
+          },
+          {
+            "title": "Approach",
+            "body": "Next, generation. A 5.6 MW wind site also runs at night; a 1 MW solar site only produces during the day. With the storage size fixed, I went for the steadier source: about 80% wind and 20% solar.\n\nI assumed a 70% round-trip efficiency, on the basis that all the energy goes through storage once. Then I looked for the multiplier that covers the worst months, January and February.",
+            "image": {
+              "alt": "Power profiles over an average day: the wind site produces between 1.6 and 3.1 MW all day, the solar site peaks at 0.66 MW around midday.",
+              "caption": "Average day for a 5.6 MW wind site and a 1 MW solar site."
+            }
+          },
+          {
+            "title": "Result",
+            "body": "It takes 57 wind turbines of 5.6 MW and 57 solar units of 1 MW: 376.2 MW installed, 319.2 MW of it wind. In January–February, generation covers 97% of demand: 5,535 MWh a day for 5,688 MWh required.\n\nThe rest of the year, the morning surplus is huge. I suggested selling it back to the grid. And I pointed out a limitation: pumped-hydro storage in such a dry country is probably a bad idea. Compressed air is an option worth exploring.",
+            "image": {
+              "alt": "Demand and generation curves for an average day of the year: a large surplus from 6 am to 4 pm, a slight deficit in the evening.",
+              "caption": "Average day over the year: a big surplus in the morning, a slight deficit in the evening. Figures from my report, replotted."
+            }
+          }
+        ]
+      },
+      "casita": {
+        "title": "Casita: any issue fixed within 24 hours",
+        "titleEm": "24 hours",
+        "field": "Product · Entrepreneurship",
+        "summary": "Rethinking customer service for short-term rentals in Australia around one promise: 24 business hours from problem to resolution.",
+        "role": "Contributed to developing the service",
+        "team": "Group project",
+        "duration": "One semester",
+        "tools": [
+          "Value Proposition Canvas",
+          "User journey",
+          "Market sizing",
+          "Mobile app prototype"
+        ],
+        "cover": {
+          "alt": "Flowchart for handling an incident: triage between minor and major incidents, a tradesperson sent out, rehousing and refund if needed, within 24 business hours at most.",
+          "caption": "How an incident is handled at Casita: 24 business hours at most."
+        },
+        "steps": [
+          {
+            "title": "Context",
+            "body": "A group innovation project during my master’s at the University of Queensland. The topic: customer experience in short-term rentals.\n\nBy studying the Australian market and the traveller journey, we saw where existing platforms fall short: customer service and incident handling.",
+            "image": {
+              "alt": "Nested circles showing the market sizing, from 8,794,000 visitors a year down to 400,000 visitors over 35, with key figures for Brisbane.",
+              "caption": "Market sizing (sources cited on the project board)."
+            }
+          },
+          {
+            "title": "Approach",
+            "body": "First, the size of the market. 8,794,000 visitors a year according to Tourism Research Australia (2024), of whom 879,400 rent accommodation and 400,000 are over 35. Our target: 80,000 customers a year, or 220 a day. Brisbane alone has 15,000 Airbnb listings.\n\nThen the value proposition, built with a Value Proposition Canvas: verified listings, a 24/7 hotline, guaranteed rehousing, partnerships with local services.",
+            "image": {
+              "alt": "Complete Value Proposition Canvas: products and services, gain creators and pain relievers set against the traveller’s jobs, gains and pains.",
+              "caption": "Our Value Proposition Canvas."
+            }
+          },
+          {
+            "title": "Result",
+            "body": "The heart of the service comes down to one promise: 24 business hours at most between the problem and its resolution. A minor incident triggers a call-out for a tradesperson. A major incident gets a response in under 4 hours; if it can’t be fixed within 24 hours, the guest is rehoused and partly refunded.\n\nWe wrapped up with a prototype built into a mobile app.",
+            "image": {
+              "alt": "Detail of the flowchart: a minor incident leads to a tradesperson being sent out; a major incident leads to a repair in under 24 hours, or to rehousing with a partial refund.",
+              "caption": "Minor or major incident: the two paths to resolution."
+            }
+          }
+        ]
+      },
+      "frein-avion": {
+        "title": "Braking a 685 kg aircraft",
+        "titleEm": "aircraft",
+        "field": "Mechanical design",
+        "summary": "Designing, as a pair, the braking assembly of a light aircraft, from the kinematic diagram to sizing the bolts and bearings.",
+        "role": "Stress modelling, material selection",
+        "team": "Pair",
+        "duration": "One semester",
+        "tools": [
+          "CATIA",
+          "Excel",
+          "Kinematic diagrams"
+        ],
+        "cover": {
+          "alt": "Section A-A of the brake disc at 1:2 scale, with diameters of 70, 100 and 110 mm and six bolt holes.",
+          "caption": "Section A-A of the disc, 1:2 scale: 6 M8 bolts transmit the braking torque."
+        },
+        "steps": [
+          {
+            "title": "Context",
+            "body": "A design project at Arts et Métiers Paris, in pairs, over one semester: designing the braking assembly of a light aircraft from scratch.\n\nThe specification sets the boundaries. A 685 kg aircraft, braking that starts at 53 m/s, a maximum deceleration of 4 m/s², a disc between 32 and 125 mm in diameter.",
+            "image": {
+              "alt": "Specification table: mass 685 kg, speed 53 m/s, deceleration 4 m/s², disc diameter from 32 to 125 mm, residual thrust 400 N.",
+              "caption": "The specification from the brief, reformatted."
+            }
+          },
+          {
+            "title": "Approach",
+            "body": "We drew 13 kinematic diagrams, from A to M, and scored each one on 3 criteria: robustness, ease of assembly, footprint.\n\nThen came the sizing. 204 Nm of braking torque has to be transmitted to the wheel. We routed it through 6 M8 bolts on a 65 mm diameter circle: 5,400 N of load per bolt, with a tightening torque of 12.7 Nm.",
+            "image": {
+              "alt": "Four hand-drawn kinematic diagrams labelled A, B, C and D, with joints in blue and bearings in green.",
+              "caption": "Four of the 13 kinematic diagram variants, drawn by hand."
+            }
+          },
+          {
+            "title": "Result",
+            "body": "For the bearings, the aircraft’s mass is spread over 2 wheels. Back-to-back (O) arrangement, 60 mm between centres, bearings with a 45 mm outer diameter: the calculated preload is 2,400 N, and the left-hand bearing takes the most load.",
+            "image": {
+              "alt": "Technical section of the wheel axle with two tapered roller bearings mounted back-to-back, 60 mm apart.",
+              "caption": "Section of the back-to-back (O) bearing arrangement, 60 mm between centres."
+            }
+          }
+        ]
+      }
+    }
+  },
+  "project": {
+    "nav": {
+      "label": "Project navigation",
+      "all": "All projects",
+      "allShort": "Projects",
+      "positionPrefix": "Project ",
+      "position": "No. {num} / {total}"
+    },
+    "links": {
+      "repo": "Source code ↗",
+      "demo": "Demo ↗"
+    },
+    "facts": {
+      "label": "Project details",
+      "role": "Role",
+      "team": "Team",
+      "duration": "Duration",
+      "tools": "Tools"
+    },
+    "figure": "fig. 01",
+    "story": "The project story",
+    "quote": "What I took away from it",
+    "next": "Next project · No. {num}"
+  },
+  "profile": {
+    "title": "Profile",
+    "stats": {
+      "projects": "in-depth projects",
+      "experience": "professional roles"
+    },
+    "tiles": {
+      "school": "education",
+      "lookingFor": "looking for"
+    }
+  },
+  "contact": {
+    "title": "Get in touch"
+  },
+  "footer": {
+    "headline": "Let’s talk.",
+    "headlineEm": ".",
+    "links": {
+      "email": "Email",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "meta": {
+    "projects": {
+      "title": "Projects"
+    },
+    "profile": {
+      "title": "Profile"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Get in touch with {name}: email, GitHub, LinkedIn."
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "This page doesn’t exist, or no longer does.",
+    "back": "Back to the home page"
+  }
+}
