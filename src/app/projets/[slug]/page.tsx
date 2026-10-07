@@ -6,7 +6,6 @@ import { getProject, projects } from "@/data/projects";
 import type { Shape as ShapeName } from "@/data/types";
 import { accentStyles, type ColorName } from "@/components/ui/accent";
 import { Shape } from "@/components/ui/Shape";
-import { SiteHeader } from "@/components/ui/SiteHeader";
 import { TitleWithEm, paragraphs, romanStep, withGuillemets } from "@/components/ui/text";
 
 export const dynamicParams = false;
@@ -52,9 +51,12 @@ export default async function ProjectPage(props: PageProps<"/projets/[slug]">) {
 
   return (
     <>
-      <SiteHeader homeHref="/">
-        <nav aria-label="Navigation du projet" className="flex items-center gap-1 text-[15px] font-semibold md:gap-2">
-          <Link href="/#projets" className="inline-flex min-h-11 items-center px-2 md:px-4">
+      <main id="contenu">
+        <nav
+          aria-label="Navigation du projet"
+          className="mx-auto flex max-w-[1360px] items-center justify-between gap-1 px-3 py-1 text-[15px] font-semibold md:gap-2 md:px-6"
+        >
+          <Link href="/projets/" className="inline-flex min-h-11 items-center px-2 md:px-4">
             ←&nbsp;<span className="hidden sm:inline">Tous les projets</span>
             <span className="sm:hidden">Projets</span>
           </Link>
@@ -62,9 +64,7 @@ export default async function ProjectPage(props: PageProps<"/projets/[slug]">) {
             <span className="sr-only">Projet </span>N°&nbsp;{project.num}&nbsp;/&nbsp;{total}
           </span>
         </nav>
-      </SiteHeader>
 
-      <main id="contenu">
         <article>
           {/* ——— Hero (couleur d'accent du projet) ——— */}
           <section className={`overflow-hidden ${a.surface}`}>

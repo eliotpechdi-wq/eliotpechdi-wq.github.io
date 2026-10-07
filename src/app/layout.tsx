@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Fraunces } from "next/font/google";
+import { SiteHeader } from "@/components/ui/SiteHeader";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -43,6 +44,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Aller au contenu
         </a>
+        {/* Sans JavaScript, les animations d'entrée ne partent jamais : on affiche tout. */}
+        <noscript>
+          <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+        <SiteHeader />
         {children}
       </body>
     </html>

@@ -49,9 +49,9 @@ export function ProjectCard({ project: p }: { project: Project }) {
             {p.field}
             <span className="hidden md:inline"> · {p.year}</span>
           </span>
-          <h3 className="m-0 break-words font-display text-2xl font-normal leading-[1.1] md:text-4xl md:leading-[1.05] md:tracking-[-0.02em]">
+          <h2 className="m-0 break-words font-display text-2xl font-normal leading-[1.1] md:text-4xl md:leading-[1.05] md:tracking-[-0.02em]">
             <TitleWithEm title={p.title} em={p.titleEm} />
-          </h3>
+          </h2>
         </div>
         <span
           aria-hidden="true"
