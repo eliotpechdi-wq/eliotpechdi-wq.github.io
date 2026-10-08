@@ -59,7 +59,7 @@ export default async function ContactPage(props: PageProps<"/[lang]/contact">) {
               id="contact-titre"
               className="m-0 font-display text-[clamp(44px,13vw,56px)] font-light leading-[0.95] tracking-[-0.035em] md:text-[clamp(64px,8vw,120px)]"
             >
-              <TitleWithEm title={contact.title} em={contact.titleEm} emClassName="text-yellow" />
+              <TitleWithEm title={contact.title} em={contact.titleEm} emClassName="text-highlight" />
             </h1>
             <p className="m-0 flex items-start gap-3 text-[15px] font-semibold leading-snug text-soft md:text-lg">
               <span aria-hidden="true" className="mt-[0.3em] inline-block size-3 shrink-0 rounded-full bg-yellow md:size-3.5" />
@@ -72,7 +72,7 @@ export default async function ContactPage(props: PageProps<"/[lang]/contact">) {
             <span className="block size-14 rounded-[100%_0_0_0] bg-blue md:size-[104px]" />
             <span className="block size-14 rounded-full bg-red md:size-[104px]" />
             <span className="block size-14 bg-yellow md:size-[104px]" />
-            <span className="block size-14 rounded-[0_0_50%_50%] bg-cream md:size-[104px]" />
+            <span className="block size-14 rounded-[0_0_50%_50%] shape-cream md:size-[104px]" />
           </div>
         </Reveal>
 
@@ -83,7 +83,7 @@ export default async function ContactPage(props: PageProps<"/[lang]/contact">) {
               <ContactForm labels={contact.form} email={email} accessKey={site.web3formsKey} lang={lang} />
             </div>
             <noscript>
-              <div className="flex flex-col gap-4 rounded-3xl bg-yellow p-7 text-bg md:p-12">
+              <div className="flex flex-col gap-4 rounded-3xl bg-yellow p-7 text-ink md:p-12">
                 <p className="m-0 text-lg md:text-xl">{contact.form.noscript}</p>
                 <a
                   href={`mailto:${email}`}
@@ -151,7 +151,7 @@ export default async function ContactPage(props: PageProps<"/[lang]/contact">) {
                   </span>
                   <span
                     aria-hidden="true"
-                    className="flex size-12 shrink-0 items-center justify-center rounded-full bg-yellow text-xl text-bg transition-transform group-hover:translate-y-0.5 md:size-14"
+                    className="flex size-12 shrink-0 items-center justify-center rounded-full bg-yellow text-xl text-ink transition-transform group-hover:translate-y-0.5 md:size-14"
                   >
                     ↓
                   </span>

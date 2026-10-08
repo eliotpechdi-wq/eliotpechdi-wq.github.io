@@ -156,7 +156,7 @@ export function ContactForm({
         ref={successRef}
         tabIndex={-1}
         role="status"
-        className="flex min-h-[360px] flex-col justify-end gap-4 rounded-3xl bg-yellow p-7 text-bg md:min-h-[480px] md:p-12"
+        className="flex min-h-[360px] flex-col justify-end gap-4 rounded-3xl bg-yellow p-7 text-ink md:min-h-[480px] md:p-12"
       >
         <span aria-hidden="true" className="mb-auto block size-16 rounded-full bg-red md:size-24" />
         <h2 className="m-0 font-display text-[34px] font-light leading-[1.05] tracking-[-0.02em] md:text-[52px]">
@@ -186,7 +186,7 @@ export function ContactForm({
           {SUBJECTS.map((key) => (
             <label
               key={key}
-              className="inline-flex min-h-11 cursor-pointer items-center rounded-full border-2 border-line px-5 text-[15px] font-semibold transition-colors hover:border-muted has-checked:border-yellow has-checked:bg-yellow has-checked:text-bg has-focus-visible:outline-3 has-focus-visible:outline-offset-3 has-focus-visible:outline-yellow md:text-base"
+              className="inline-flex min-h-11 cursor-pointer items-center rounded-full border-2 border-line px-5 text-[15px] font-semibold transition-colors hover:border-muted has-checked:border-yellow has-checked:bg-yellow has-checked:text-ink has-focus-visible:outline-3 has-focus-visible:outline-offset-3 has-focus-visible:outline-yellow light:has-focus-visible:outline-ink md:text-base"
             >
               <input type="radio" name="objet" value={key} className="sr-only" />
               {labels.subject.options[key]}
@@ -212,7 +212,8 @@ export function ContactForm({
             className={inputClass}
           />
           {errors.name && (
-            <p id={fieldId("name-error")} className="m-0 text-[15px] font-semibold text-red">
+            <p id={fieldId("name-error")} className="m-0 flex items-start gap-2 text-[15px] font-semibold text-fg">
+              <span aria-hidden="true" className="mt-[0.4em] inline-block size-2.5 shrink-0 bg-red" />
               {errors.name}
             </p>
           )}
@@ -235,7 +236,8 @@ export function ContactForm({
             className={inputClass}
           />
           {errors.email && (
-            <p id={fieldId("email-error")} className="m-0 text-[15px] font-semibold text-red">
+            <p id={fieldId("email-error")} className="m-0 flex items-start gap-2 text-[15px] font-semibold text-fg">
+              <span aria-hidden="true" className="mt-[0.4em] inline-block size-2.5 shrink-0 bg-red" />
               {errors.email}
             </p>
           )}
@@ -257,7 +259,8 @@ export function ContactForm({
           className={`${inputClass} min-h-[180px] resize-y leading-relaxed`}
         />
         {errors.message && (
-          <p id={fieldId("message-error")} className="m-0 text-[15px] font-semibold text-red">
+          <p id={fieldId("message-error")} className="m-0 flex items-start gap-2 text-[15px] font-semibold text-fg">
+            <span aria-hidden="true" className="mt-[0.4em] inline-block size-2.5 shrink-0 bg-red" />
             {errors.message}
           </p>
         )}
@@ -289,7 +292,7 @@ export function ContactForm({
         <button
           type="submit"
           disabled={sending}
-          className="inline-flex min-h-14 cursor-pointer items-center gap-4 rounded-full bg-yellow py-1.5 pl-7 pr-1.5 text-[17px] font-bold text-bg transition-opacity disabled:cursor-wait disabled:opacity-70 md:min-h-16 md:text-lg"
+          className="inline-flex min-h-14 cursor-pointer items-center gap-4 rounded-full bg-yellow py-1.5 pl-7 pr-1.5 text-[17px] font-bold text-ink transition-opacity disabled:cursor-wait disabled:opacity-70 md:min-h-16 md:text-lg"
         >
           {sending ? labels.sending : labels.submit}
           <span

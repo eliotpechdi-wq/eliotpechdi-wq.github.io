@@ -51,7 +51,7 @@ export function CopyEmail({ email, labels }: { email: string; labels: CopyEmailL
         aria-label={labels.copyLabel}
         data-requires-js
         className={`inline-flex min-h-11 shrink-0 cursor-pointer items-center gap-2 rounded-full px-5 text-[15px] font-bold transition-colors ${
-          state === "copied" ? "bg-yellow text-bg" : "bg-bg text-fg hover:bg-surface"
+          state === "copied" ? "bg-yellow text-ink" : "bg-bg text-fg hover:bg-surface"
         }`}
       >
         <span aria-hidden="true">{state === "copied" ? "✓" : "⧉"}</span>
