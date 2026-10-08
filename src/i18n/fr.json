@@ -424,7 +424,62 @@
     }
   },
   "contact": {
-    "title": "Me contacter"
+    "title": "Me contacter",
+    "titleEm": "contacter",
+    "available": "Disponible",
+    "form": {
+      "label": "Formulaire de contact",
+      "subject": {
+        "legend": "Objet",
+        "options": {
+          "job": "Offre d’emploi",
+          "freelance": "Mission freelance",
+          "other": "Autre"
+        },
+        "fallback": "Contact"
+      },
+      "optional": "(facultatif)",
+      "name": "Nom",
+      "email": "E-mail",
+      "message": "Message",
+      "honeypot": "Ne pas remplir ce champ",
+      "errors": {
+        "nameMissing": "Indiquez votre nom.",
+        "emailMissing": "Indiquez votre adresse e-mail.",
+        "emailInvalid": "Cette adresse e-mail semble incomplète (ex. prenom@entreprise.fr).",
+        "messageMissing": "Écrivez votre message."
+      },
+      "submit": "Envoyer",
+      "sending": "Envoi en cours…",
+      "promise": "Réponse sous 48 h",
+      "success": {
+        "title": "Message envoyé, merci !",
+        "body": "Je vous réponds sous 48 h à l’adresse {email}."
+      },
+      "error": {
+        "title": "Le message n’est pas parti.",
+        "body": "Ce que vous avez écrit est conservé : réessayez dans un instant, ou écrivez-moi directement à {email}."
+      },
+      "noscript": "Le formulaire a besoin de JavaScript. Écrivez-moi directement :"
+    },
+    "direct": {
+      "title": "En direct",
+      "email": "E-mail",
+      "copy": "Copier",
+      "copyLabel": "Copier l’adresse e-mail",
+      "copied": "Copié",
+      "copiedAnnounce": "Adresse e-mail copiée",
+      "copyFailed": "Copie impossible : sélectionnez l’adresse",
+      "elsewhere": "Ailleurs"
+    },
+    "cv": {
+      "title": "CV",
+      "download": "Télécharger mon CV",
+      "lang": "Français",
+      "file": "{lang} · PDF · {size}",
+      "sizeUnit": "Ko",
+      "other": "Aussi en anglais"
+    }
   },
   "footer": {
     "headline": "Parlons-en.",
@@ -444,7 +499,7 @@
     },
     "contact": {
       "title": "Contact",
-      "description": "Contacter {name} : e-mail, GitHub, LinkedIn."
+      "description": "Contacter {name} : formulaire, e-mail, LinkedIn, GitHub et CV en PDF."
     }
   },
   "notFound": {
