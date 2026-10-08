@@ -48,4 +48,6 @@ export type Site = {
   name: string;
   stats: { projects: string; experience: string }; // valeurs des tuiles du profil
   links: { github: string; email: string; linkedin: string };
+  /** Clé d'accès Web3Forms du formulaire de contact (publique par conception). */
+  web3formsKey: string;
 };
