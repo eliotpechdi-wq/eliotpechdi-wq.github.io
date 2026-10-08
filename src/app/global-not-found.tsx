@@ -34,7 +34,7 @@ export default function GlobalNotFound() {
                 <Link
                   href={localePath(lang)}
                   hrefLang={lang}
-                  className="inline-flex min-h-12 items-center self-start rounded-full bg-yellow px-[22px] text-[15px] font-bold text-bg"
+                  className="inline-flex min-h-12 items-center self-start rounded-full bg-yellow px-[22px] text-[15px] font-bold text-ink"
                 >
                   {notFound.back}
                 </Link>

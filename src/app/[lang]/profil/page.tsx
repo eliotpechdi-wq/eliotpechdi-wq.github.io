@@ -20,9 +20,9 @@ export async function generateMetadata(props: PageProps<"/[lang]/profil">): Prom
 
 const TILE_COLORS = [
   "bg-red text-white",
-  "bg-yellow text-bg",
+  "bg-yellow text-ink",
   "bg-blue text-white",
-  "bg-cream text-bg",
+  "bg-cream text-ink",
 ];
 
 export default async function ProfilePage(props: PageProps<"/[lang]/profil">) {

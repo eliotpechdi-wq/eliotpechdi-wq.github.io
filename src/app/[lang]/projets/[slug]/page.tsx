@@ -256,7 +256,7 @@ export default async function ProjectPage(props: PageProps<"/[lang]/projets/[slu
           {project.quote && (
             <section aria-label={ui.quote} className="mx-auto max-w-[1360px] px-5 pb-20 md:px-10 md:pb-[120px]">
               <Reveal>
-              <blockquote className="m-0 rounded-3xl bg-yellow p-8 font-display text-[28px] font-light italic leading-[1.2] tracking-[-0.015em] text-bg md:rounded-[32px] md:p-16 md:text-[44px]">
+              <blockquote className="m-0 rounded-3xl bg-yellow p-8 font-display text-[28px] font-light italic leading-[1.2] tracking-[-0.015em] text-ink md:rounded-[32px] md:p-16 md:text-[44px]">
                 <p className="m-0">{withGuillemets(project.quote, dict.common.quote)}</p>
               </blockquote>
               </Reveal>

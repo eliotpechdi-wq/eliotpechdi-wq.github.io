@@ -44,7 +44,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
       <body className="min-h-dvh bg-bg font-sans text-fg">
         <a
           href="#contenu"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-yellow focus:px-5 focus:py-3 focus:font-semibold focus:text-bg"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-yellow focus:px-5 focus:py-3 focus:font-semibold focus:text-ink"
         >
           {dict.common.skipToContent}
         </a>

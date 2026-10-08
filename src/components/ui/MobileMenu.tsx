@@ -99,7 +99,7 @@ export function MobileMenu({
                     href={l.href}
                     aria-current={current}
                     onClick={() => setOpen(false)}
-                    className={`inline-flex min-h-12 items-center rounded-full bg-yellow px-[22px] text-[15px] font-bold text-bg ${
+                    className={`inline-flex min-h-12 items-center rounded-full bg-yellow px-[22px] text-[15px] font-bold text-ink ${
                       current ? "ring-2 ring-fg ring-offset-2 ring-offset-bg" : ""
                     }`}
                   >

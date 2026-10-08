@@ -29,7 +29,7 @@ export function SiteNav({
         aria-current={current}
         className={
           l.cta
-            ? `inline-flex min-h-11 items-center rounded-full bg-yellow px-5 text-bg ${
+            ? `inline-flex min-h-11 items-center rounded-full bg-yellow px-5 text-ink ${
                 current ? "ring-2 ring-fg ring-offset-2 ring-offset-bg" : ""
               }`
             : "inline-flex min-h-11 items-center gap-2 px-4"
