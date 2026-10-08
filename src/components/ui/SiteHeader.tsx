@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { site } from "@/data/site";
 import { localePath, type Dictionary, type Locale } from "@/i18n";
+import type { ThemeLabels } from "@/components/theme/ThemeToggle";
 import type { LangSwitchLabels } from "./LangSwitch";
 import { MobileMenu } from "./MobileMenu";
 import { navLinks } from "./nav";
@@ -23,13 +24,20 @@ function Logo({ href }: { href: string }) {
 export function SiteHeader({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const links = navLinks(lang, dict.nav);
   const langLabels: LangSwitchLabels = { label: dict.lang.label, switchLabel: dict.lang.switchLabel };
+  const themeLabels: ThemeLabels = dict.nav.theme;
 
   return (
     <header className="sticky top-0 z-10 border-b border-line bg-bg">
       <div className="mx-auto flex min-h-16 max-w-[1360px] items-center justify-between gap-4 px-5 md:min-h-[76px] md:gap-6 md:px-10">
         <Logo href={localePath(lang)} />
-        <SiteNav links={links} label={dict.nav.label} lang={lang} langLabels={langLabels} />
-        <MobileMenu links={links} labels={dict.nav.menu} lang={lang} langLabels={langLabels} />
+        <SiteNav links={links} label={dict.nav.label} lang={lang} langLabels={langLabels} themeLabels={themeLabels} />
+        <MobileMenu
+          links={links}
+          labels={dict.nav.menu}
+          lang={lang}
+          langLabels={langLabels}
+          themeLabels={themeLabels}
+        />
       </div>
     </header>
   );

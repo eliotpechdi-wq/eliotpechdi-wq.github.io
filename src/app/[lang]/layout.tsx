@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
+import { THEME_COLORS, ThemeScript } from "@/components/theme/script";
 import { SiteHeader } from "@/components/ui/SiteHeader";
 import { site } from "@/data/site";
 import { LOCALES, getDictionary, hasLocale } from "@/i18n";
@@ -30,8 +31,13 @@ export async function generateMetadata(props: LayoutProps<"/[lang]">): Promise<M
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0F0F0D",
-  colorScheme: "dark",
+  // Barre du navigateur : suit le thème du système (un thème forcé par le
+  // bouton n'est pas reflété ici, voir le rapport du chantier).
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: THEME_COLORS.dark },
+    { media: "(prefers-color-scheme: light)", color: THEME_COLORS.light },
+  ],
+  colorScheme: "dark light",
 };
 
 export default async function RootLayout({ children, params }: LayoutProps<"/[lang]">) {
@@ -40,7 +46,11 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   const dict = getDictionary(lang);
 
   return (
-    <html lang={lang} className={`${fontVariables} antialiased`}>
+    // suppressHydrationWarning : le script du <head> pose data-theme avant React.
+    <html lang={lang} className={`${fontVariables} antialiased`} suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body className="min-h-dvh bg-bg font-sans text-fg">
         <a
           href="#contenu"

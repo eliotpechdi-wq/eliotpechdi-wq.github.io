@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Locale } from "@/i18n/config";
+import { ThemeToggle, type ThemeLabels } from "@/components/theme/ThemeToggle";
 import { LangSwitch, type LangSwitchLabels } from "./LangSwitch";
 import { currentFor, type NavLink } from "./nav";
 
@@ -12,11 +13,13 @@ export function SiteNav({
   label,
   lang,
   langLabels,
+  themeLabels,
 }: {
   links: NavLink[];
   label: string;
   lang: Locale;
   langLabels: LangSwitchLabels;
+  themeLabels: ThemeLabels;
 }) {
   const pathname = usePathname();
 
@@ -46,8 +49,9 @@ export function SiteNav({
   return (
     <nav aria-label={label} className="hidden gap-2 text-[15px] font-semibold md:flex">
       {links.filter((l) => !l.cta).map(renderLink)}
-      {/* Sélecteur de langue, juste avant le bouton « Me contacter » */}
+      {/* Sélecteur de langue et thème, juste avant le bouton « Me contacter » */}
       <LangSwitch lang={lang} labels={langLabels} className="px-2.5" />
+      <ThemeToggle labels={themeLabels} />
       {links.filter((l) => l.cta).map(renderLink)}
     </nav>
   );
