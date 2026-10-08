@@ -61,8 +61,8 @@ export default async function ContactPage(props: PageProps<"/[lang]/contact">) {
             >
               <TitleWithEm title={contact.title} em={contact.titleEm} emClassName="text-yellow" />
             </h1>
-            <p className="m-0 inline-flex items-center gap-3 text-[15px] font-semibold text-soft md:text-lg">
-              <span aria-hidden="true" className="inline-block size-3 shrink-0 rounded-full bg-yellow md:size-3.5" />
+            <p className="m-0 flex items-start gap-3 text-[15px] font-semibold leading-snug text-soft md:text-lg">
+              <span aria-hidden="true" className="mt-[0.3em] inline-block size-3 shrink-0 rounded-full bg-yellow md:size-3.5" />
               {availability}
             </p>
           </div>
@@ -87,7 +87,7 @@ export default async function ContactPage(props: PageProps<"/[lang]/contact">) {
                 <p className="m-0 text-lg md:text-xl">{contact.form.noscript}</p>
                 <a
                   href={`mailto:${email}`}
-                  className="break-all font-display text-[28px] font-light leading-tight underline decoration-2 underline-offset-4 md:text-[44px]"
+                  className="font-display text-[24px] font-light leading-tight underline decoration-2 underline-offset-4 [overflow-wrap:anywhere] sm:text-[32px] md:text-[44px]"
                 >
                   {email}
                 </a>
@@ -102,7 +102,7 @@ export default async function ContactPage(props: PageProps<"/[lang]/contact">) {
                 <h2 className={`m-0 text-[15px] font-semibold ${cream.soft}`}>{contact.direct.email}</h2>
                 <a
                   href={`mailto:${email}`}
-                  className="break-all font-display text-[24px] leading-tight tracking-[-0.01em] md:text-[28px]"
+                  className="font-display text-[24px] [overflow-wrap:anywhere] leading-tight tracking-[-0.01em] md:text-[28px]"
                 >
                   {email}
                 </a>
