@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Locale } from "@/i18n/config";
+import { ThemeToggle, type ThemeLabels } from "@/components/theme/ThemeToggle";
 import { LangSwitch, type LangSwitchLabels } from "./LangSwitch";
 import { currentFor, type NavLink } from "./nav";
 
@@ -13,11 +14,13 @@ export function MobileMenu({
   labels,
   lang,
   langLabels,
+  themeLabels,
 }: {
   links: NavLink[];
   labels: { label: string; open: string; close: string };
   lang: Locale;
   langLabels: LangSwitchLabels;
+  themeLabels: ThemeLabels;
 }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -99,7 +102,7 @@ export function MobileMenu({
                     href={l.href}
                     aria-current={current}
                     onClick={() => setOpen(false)}
-                    className={`inline-flex min-h-12 items-center rounded-full bg-yellow px-[22px] text-[15px] font-bold text-bg ${
+                    className={`inline-flex min-h-12 items-center rounded-full bg-yellow px-[22px] text-[15px] font-bold text-ink ${
                       current ? "ring-2 ring-fg ring-offset-2 ring-offset-bg" : ""
                     }`}
                   >
@@ -122,7 +125,10 @@ export function MobileMenu({
             })}
           </ul>
         </nav>
-        <LangSwitch lang={lang} labels={langLabels} className="mt-4 -ml-1.5 text-[15px] font-semibold" />
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-x-4 text-[15px] font-semibold">
+          <LangSwitch lang={lang} labels={langLabels} className="-ml-1.5" />
+          <ThemeToggle labels={themeLabels} showLabel className="-mr-1.5 px-1.5" />
+        </div>
       </div>
     </div>
   );

@@ -1,28 +1,116 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------
-   B×C 1 — Nuit Bauhaus : jetons de design
+   B×C 1 — Nuit Bauhaus (sombre) & Papier Bauhaus (clair) : jetons
+   ---------------------------------------------------------------
+   Thème actif :
+   - par défaut, celui du système (prefers-color-scheme), en CSS pur ;
+   - forcé par le bouton de thème : data-theme="light|dark" sur <html>
+     (posé avant le premier rendu par le script inline du <head>).
+
+   Ratios WCAG 2.x mesurés (texte normal ≥ 4.5:1, grand texte ≥ 3:1) :
+
+   Sombre (--bg #0F0F0D, --surface #1A1A17)
+     --fg      #EFEBE1  16.12 sur bg · 14.65 sur surface
+     --soft    #C9C4B8  11.03 sur bg
+     --muted   #A8A397   7.63 sur bg ·  6.94 sur surface
+     --highlight = --yellow #F4C21B  11.49 sur bg · 10.45 sur surface
+
+   Clair (--bg #F5F0E6, --surface #FBF8F2, --cream #E8DCC4)
+     --fg      #141310  16.36 sur bg · 17.53 sur surface
+     --soft    #3A372F  10.46 sur bg · 11.21 sur surface
+     --muted   #5E594E   6.13 sur bg ·  6.57 sur surface · 5.13 sur cream
+     --highlight #8A6500 (ocre)  4.69 sur bg · 5.03 sur surface
+     --cream #E8DCC4 (sable) sur bg : 1.20 (crème d’origine : 1.05) ; décor
+     --ink (focus) sur bg 16.89 · --yellow seul sur bg 1.47 (insuffisant)
+
+   Communs aux deux thèmes (surfaces colorées, inchangées)
+     --ink #0F0F0D sur --yellow  11.49 · sur cream sombre 16.12 · sur cream clair 14.13
+     #36332B (soft) sur --yellow 7.55 · sur cream sombre 10.59 · sur cream clair 9.29
+     blanc sur --blue #3460E0     5.39 · #EEF1FD sur blue 4.78
+     blanc sur --red  #D63D27     4.61 (ancien #E0452F : 4.15, insuffisant)
+     cream sur --ink (pastille)   16.12 sombre · 14.13 clair
    --------------------------------------------------------------- */
 :root {
   --bg: #0f0f0d; /* fond */
   --fg: #efebe1; /* texte principal */
-  --muted: #a8a397; /* texte discret (≈7.6:1 sur --bg) */
+  --muted: #a8a397; /* texte discret */
   --soft: #c9c4b8; /* texte secondaire */
   --line: #2b2a26; /* filets */
   --surface: #1a1a17; /* cartes, panneaux */
-  --red: #e0452f;
+  --highlight: var(--yellow); /* mot mis en avant (texte sur --bg) */
+  --red: #d63d27; /* assombri depuis #e0452f pour le blanc à 4.5:1 */
   --blue: #3460e0;
   --yellow: #f4c21b;
   --cream: #efebe1;
   --white: #ffffff;
+  /* Texte foncé posé sur jaune ou crème : identique dans les deux thèmes. */
+  --ink: #0f0f0d;
+
+  color-scheme: dark;
 
   /* Hauteur du header sticky (pour scroll-margin-top) */
   --header-h: 64px;
 }
 
+/* Jetons du thème clair : fond papier chaud, encre quasi noire. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f5f0e6;
+    --fg: #141310;
+    --muted: #5e594e;
+    --soft: #3a372f;
+    --line: #d9d0bd;
+    --surface: #fbf8f2;
+    --highlight: #8a6500;
+    /* Crème → sable : sur papier, le crème d'origine (#EFEBE1) se confondait
+       avec le fond (1.05:1). Le sable reste une couleur claire (texte --ink à
+       14.13:1) mais se détache du papier ; les formes crème reçoivent en plus
+       un filet d'encre intérieur (utilitaire shape-cream, voir plus bas). */
+    --cream: #e8dcc4;
+    color-scheme: light;
+  }
+}
+
+:root[data-theme="light"] {
+  --bg: #f5f0e6;
+  --fg: #141310;
+  --muted: #5e594e;
+  --soft: #3a372f;
+  --line: #d9d0bd;
+  --surface: #fbf8f2;
+  --highlight: #8a6500;
+  --cream: #e8dcc4;
+  color-scheme: light;
+}
+
 @media (min-width: 768px) {
   :root {
     --header-h: 76px;
+  }
+}
+
+/* Variantes Tailwind suivant le thème ACTIF (système ou forcé) :
+   `light:…` et `dark:…` (remplace le dark: par défaut, basé sur le seul média). */
+@custom-variant light {
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) & {
+      @slot;
+    }
+  }
+  :root[data-theme="light"] & {
+    @slot;
+  }
+}
+
+@custom-variant dark {
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) & {
+      @slot;
+    }
+  }
+  :root[data-theme="dark"] & {
+    @slot;
   }
 }
 
@@ -33,10 +121,12 @@
   --color-soft: var(--soft);
   --color-line: var(--line);
   --color-surface: var(--surface);
+  --color-highlight: var(--highlight);
   --color-red: var(--red);
   --color-blue: var(--blue);
   --color-yellow: var(--yellow);
   --color-cream: var(--cream);
+  --color-ink: var(--ink);
 
   --font-display: var(--font-fraunces), "Fraunces", Georgia, serif;
   --font-sans: var(--font-bricolage), "Bricolage Grotesque", system-ui,
@@ -46,7 +136,6 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -72,16 +161,17 @@
     opacity: 0.85;
   }
 
-  /* Focus visible, contrasté sur fonds sombres comme colorés */
+  /* Focus visible : anneau jaune (10.45–11.49:1 sur les fonds sombres). */
   :focus-visible {
     outline: 3px solid var(--yellow);
     outline-offset: 3px;
     border-radius: 4px;
   }
 
+  /* Sur jaune ou crème, l'anneau passe à l'encre (11.49 / 14.13–16.12:1). */
   .bg-yellow :focus-visible,
   .bg-cream :focus-visible {
-    outline-color: var(--bg);
+    outline-color: var(--ink);
   }
 
   em {
@@ -90,6 +180,34 @@
 
   blockquote {
     quotes: none;
+  }
+}
+
+/* Thème clair : le jaune seul ne fait que 1.47:1 sur le papier. L'anneau
+   devient encre (16.89:1 sur bg) et garde le jaune en liseré intérieur,
+   dans l'écart de 3px de outline-offset (aucun décalage de mise en page). */
+@layer base {
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) :focus-visible {
+      outline-color: var(--ink);
+      box-shadow: 0 0 0 3px var(--yellow);
+    }
+  }
+  :root[data-theme="light"] :focus-visible {
+    outline-color: var(--ink);
+    box-shadow: 0 0 0 3px var(--yellow);
+  }
+}
+
+/* Formes crème posées sur le fond de page (accueil, bandeau) : en clair, un
+   filet d'encre intérieur les détoure, comme un tracé d'affiche Bauhaus.
+   box-shadow inset : ni la taille ni la mise en page ne changent. Les surfaces
+   crème (cartes, hero projet, tuile du profil) n'en ont pas besoin : le sable
+   suffit, comme --surface sur --bg en sombre. */
+@utility shape-cream {
+  background-color: var(--cream);
+  @variant light {
+    box-shadow: inset 0 0 0 1.5px var(--ink);
   }
 }
 

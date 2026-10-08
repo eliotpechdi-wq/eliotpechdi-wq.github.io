@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { LOCALES, getDictionary, localePath } from "@/i18n";
+import { THEME_COLORS, ThemeScript } from "@/components/theme/script";
 import { fontVariables } from "./fonts";
 import "./globals.css";
 
@@ -14,9 +15,20 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: THEME_COLORS.dark },
+    { media: "(prefers-color-scheme: light)", color: THEME_COLORS.light },
+  ],
+  colorScheme: "dark light",
+};
+
 export default function GlobalNotFound() {
   return (
-    <html lang="fr" className={`${fontVariables} antialiased`}>
+    <html lang="fr" className={`${fontVariables} antialiased`} suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body className="min-h-dvh bg-bg font-sans text-fg">
         <main
           id="contenu"
@@ -34,7 +46,7 @@ export default function GlobalNotFound() {
                 <Link
                   href={localePath(lang)}
                   hrefLang={lang}
-                  className="inline-flex min-h-12 items-center self-start rounded-full bg-yellow px-[22px] text-[15px] font-bold text-bg"
+                  className="inline-flex min-h-12 items-center self-start rounded-full bg-yellow px-[22px] text-[15px] font-bold text-ink"
                 >
                   {notFound.back}
                 </Link>

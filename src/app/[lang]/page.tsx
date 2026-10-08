@@ -29,13 +29,13 @@ function Tagline({ text }: { text: string }) {
         </>
       )}
       {tail && <>{tail} </>}
-      <em className="font-semibold text-yellow">{last}</em>
+      <em className="font-semibold text-highlight">{last}</em>
       {punct}
     </>
   );
 }
 
-const BAND_MARKS = ["rounded-full bg-red", "bg-yellow", "rounded-[100%_0_0_0] bg-blue", "rounded-full bg-cream"];
+const BAND_MARKS = ["rounded-full bg-red", "bg-yellow", "rounded-[100%_0_0_0] bg-blue", "rounded-full shape-cream"];
 
 export default async function Home(props: PageProps<"/[lang]">) {
   const { lang } = await props.params;
@@ -74,7 +74,7 @@ export default async function Home(props: PageProps<"/[lang]">) {
               >
                 <div data-shape="quarter" className="h-full w-full rounded-[100%_0_0_0] bg-blue" />
                 <div data-shape="circle" className="h-full w-full rounded-full bg-red" />
-                <div data-shape="bar" className="h-full w-full rounded-[0_0_0_100%] bg-cream" />
+                <div data-shape="bar" className="h-full w-full rounded-[0_0_0_100%] shape-cream" />
                 <div data-shape="square" className="h-full w-full bg-yellow" />
               </ShapesIntro>
             </div>
@@ -82,7 +82,7 @@ export default async function Home(props: PageProps<"/[lang]">) {
             {/* Accès aux projets : pastille jaune + disque rouge dont la flèche pivote au survol */}
             <HoverCard
               href={localePath(lang, "/projets/")}
-              className="inline-flex min-h-14 items-center gap-4 self-start rounded-full bg-yellow py-1.5 pl-6 pr-1.5 text-[17px] font-bold text-bg md:min-h-[72px] md:gap-6 md:py-2 md:pl-9 md:pr-2 md:text-xl"
+              className="inline-flex min-h-14 items-center gap-4 self-start rounded-full bg-yellow py-1.5 pl-6 pr-1.5 text-[17px] font-bold text-ink md:min-h-[72px] md:gap-6 md:py-2 md:pl-9 md:pr-2 md:text-xl"
             >
               {dict.home.hero.cta}
               <HoverShape
@@ -104,8 +104,8 @@ export default async function Home(props: PageProps<"/[lang]">) {
             >
               <div data-shape="quarter" className="h-full w-full rounded-[100%_0_0_0] bg-blue" />
               <div data-shape="circle" className="h-full w-full rounded-full bg-red" />
-              <div data-shape="bar" className="flex h-full w-full items-end justify-end rounded-[0_0_0_100%] bg-cream p-5">
-                <span className="font-display text-[22px] italic text-bg">{dict.home.hero.volume}</span>
+              <div data-shape="bar" className="flex h-full w-full items-end justify-end rounded-[0_0_0_100%] shape-cream p-5">
+                <span className="font-display text-[22px] italic text-ink">{dict.home.hero.volume}</span>
               </div>
               <div data-shape="square" className="h-full w-full bg-yellow" />
             </ShapesIntro>

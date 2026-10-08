@@ -20,7 +20,7 @@ export function SiteFooter({ dict }: { dict: Dictionary }) {
 
   // Le point final en italique jaune (footer.headlineEm), comme le titleEm des titres.
   const headline = (
-    <TitleWithEm title={dict.footer.headline} em={dict.footer.headlineEm} emClassName="text-yellow" />
+    <TitleWithEm title={dict.footer.headline} em={dict.footer.headlineEm} emClassName="text-highlight" />
   );
 
   return (

@@ -1,7 +1,7 @@
 import type { Accent, Shape } from "@/data/types";
 
 /** Couleurs nommées disponibles pour les formes (variables CSS de globals.css). */
-export type ColorName = "red" | "blue" | "yellow" | "cream" | "bg" | "fg" | "white";
+export type ColorName = "red" | "blue" | "yellow" | "cream" | "ink" | "bg" | "fg" | "white";
 
 export const colorVar = (c: ColorName) => `var(--${c})`;
 
@@ -13,6 +13,16 @@ export const shapeRadius: Record<Shape, string> = {
   half: "0 0 50% 50%",
 };
 
+/*
+ * Ratios WCAG mesurés, identiques dans les deux thèmes (les surfaces d'accent
+ * ne changent pas avec le thème, sauf le crème : #EFEBE1 sombre, #E8DCC4 clair) :
+ *   blue   : blanc 5.39 · soft #EEF1FD 4.78 · pastille --ink sur jaune 11.49
+ *   red    : blanc 4.61 · soft blanc 4.61 (#FDEEEB ne faisait que 3.68 sur rouge)
+ *   yellow : --ink 11.49 · soft #36332B 7.55 · pastille crème sur --ink 16.12 / 14.13
+ *   cream  : --ink 16.12 / 14.13 · soft #36332B 10.59 / 9.29 · pastille idem
+ * Les formes utilisent --ink plutôt que --bg : sur fond clair, --bg vaudrait
+ * le papier et la forme noire sur rouge deviendrait une forme crème.
+ */
 type AccentStyle = {
   /** Classes fond + texte (rouge/bleu → texte blanc, jaune/crème → texte sombre). */
   surface: string;
@@ -32,27 +42,27 @@ export const accentStyles: Record<Accent, AccentStyle> = {
     soft: "text-[#EEF1FD]",
     cardShape: "yellow",
     heroShapes: ["yellow", "red"],
-    pill: "bg-yellow text-bg",
+    pill: "bg-yellow text-ink",
   },
   red: {
     surface: "bg-red text-white",
-    soft: "text-[#FDEEEB]",
-    cardShape: "bg",
-    heroShapes: ["yellow", "bg"],
-    pill: "bg-yellow text-bg",
+    soft: "text-white",
+    cardShape: "ink",
+    heroShapes: ["yellow", "ink"],
+    pill: "bg-yellow text-ink",
   },
   yellow: {
-    surface: "bg-yellow text-bg",
+    surface: "bg-yellow text-ink",
     soft: "text-[#36332B]",
     cardShape: "red",
     heroShapes: ["red", "blue"],
-    pill: "bg-bg text-fg",
+    pill: "bg-ink text-cream",
   },
   cream: {
-    surface: "bg-cream text-bg",
+    surface: "bg-cream text-ink",
     soft: "text-[#36332B]",
     cardShape: "blue",
     heroShapes: ["blue", "red"],
-    pill: "bg-bg text-fg",
+    pill: "bg-ink text-cream",
   },
 };

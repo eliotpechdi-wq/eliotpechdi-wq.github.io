@@ -17,6 +17,13 @@
       "label": "Menu principal",
       "open": "Ouvrir le menu",
       "close": "Fermer le menu"
+    },
+    "theme": {
+      "toggle": "Changer de thème",
+      "toLight": "Passer au thème clair",
+      "toDark": "Passer au thème sombre",
+      "light": "Thème clair",
+      "dark": "Thème sombre"
     }
   },
   "site": {
