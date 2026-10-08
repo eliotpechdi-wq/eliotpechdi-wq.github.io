@@ -58,7 +58,7 @@ export default async function ProjectsPage(props: PageProps<"/[lang]/projets">) 
         </section>
       </main>
 
-      <SiteFooter dict={dict} />
+      <SiteFooter dict={dict} lang={lang} />
     </>
   );
 }

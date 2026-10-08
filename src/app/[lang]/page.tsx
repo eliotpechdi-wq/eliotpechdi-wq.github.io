@@ -128,7 +128,7 @@ export default async function Home(props: PageProps<"/[lang]">) {
         </div>
       </main>
 
-      <SiteFooter dict={dict} />
+      <SiteFooter dict={dict} lang={lang} />
     </>
   );
 }

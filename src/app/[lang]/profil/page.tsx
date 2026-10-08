@@ -91,7 +91,7 @@ export default async function ProfilePage(props: PageProps<"/[lang]/profil">) {
         </section>
       </main>
 
-      <SiteFooter dict={dict} />
+      <SiteFooter dict={dict} lang={lang} />
     </>
   );
 }

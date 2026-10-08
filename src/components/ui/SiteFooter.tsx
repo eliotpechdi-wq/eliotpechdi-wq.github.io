@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { Reveal } from "@/components/motion";
 import { site } from "@/data/site";
-import type { Dictionary } from "@/i18n";
+import { localePath, type Dictionary, type Locale } from "@/i18n";
 import { TitleWithEm } from "./text";
 
 /** Liens de contact renseignés (e-mail, GitHub, LinkedIn) ; les vides sont masqués. */
@@ -13,9 +14,8 @@ export function contactLinks(labels: Dictionary["footer"]["links"]) {
   ].filter((l): l is { href: string; label: string } => Boolean(l));
 }
 
-/** Pied de page « Parlons-en. » */
-export function SiteFooter({ dict }: { dict: Dictionary }) {
-  const { email } = site.links;
+/** Pied de page « Parlons-en. » : le titre mène à la page contact. */
+export function SiteFooter({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const links = contactLinks(dict.footer.links);
 
   // Le point final en italique jaune (footer.headlineEm), comme le titleEm des titres.
@@ -28,7 +28,7 @@ export function SiteFooter({ dict }: { dict: Dictionary }) {
       <div className="mx-auto flex max-w-[1360px] flex-col gap-7 px-5 pb-7 pt-12 md:gap-[72px] md:px-10 md:pb-10 md:pt-[120px]">
         <Reveal className="flex flex-wrap items-center gap-4 md:gap-8">
           <h2 className="m-0 font-display text-[52px] font-light leading-[0.95] tracking-[-0.04em] md:text-[clamp(56px,9vw,140px)]">
-            {email ? <a href={`mailto:${email}`}>{headline}</a> : headline}
+            <Link href={localePath(lang, "/contact/")}>{headline}</Link>
           </h2>
           <span
             aria-hidden="true"
