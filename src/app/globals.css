@@ -64,7 +64,7 @@
     /* Crème → sable : sur papier, le crème d'origine (#EFEBE1) se confondait
        avec le fond (1.04:1). Le sable reste une couleur claire (texte --ink à
        14.24:1) mais se détache du papier ; les formes crème reçoivent en plus
-       un filet d'encre intérieur (voir plus bas). */
+       un filet d'encre intérieur (utilitaire shape-cream, voir plus bas). */
     --cream: #e8dcc4;
     color-scheme: light;
   }
@@ -197,15 +197,14 @@
   }
 }
 
-/* Thème clair : filet d'encre intérieur sur les formes et surfaces crème
-   (box-shadow inset : ne change ni la taille ni la mise en page). */
-@layer components {
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) .bg-cream {
-      box-shadow: inset 0 0 0 1.5px var(--ink);
-    }
-  }
-  :root[data-theme="light"] .bg-cream {
+/* Formes crème posées sur le fond de page (accueil, bandeau) : en clair, un
+   filet d'encre intérieur les détoure, comme un tracé d'affiche Bauhaus.
+   box-shadow inset : ni la taille ni la mise en page ne changent. Les surfaces
+   crème (cartes, hero projet, tuile du profil) n'en ont pas besoin : le sable
+   suffit, comme --surface sur --bg en sombre. */
+@utility shape-cream {
+  background-color: var(--cream);
+  @variant light {
     box-shadow: inset 0 0 0 1.5px var(--ink);
   }
 }

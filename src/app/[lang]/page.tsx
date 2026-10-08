@@ -35,7 +35,7 @@ function Tagline({ text }: { text: string }) {
   );
 }
 
-const BAND_MARKS = ["rounded-full bg-red", "bg-yellow", "rounded-[100%_0_0_0] bg-blue", "rounded-full bg-cream"];
+const BAND_MARKS = ["rounded-full bg-red", "bg-yellow", "rounded-[100%_0_0_0] bg-blue", "rounded-full shape-cream"];
 
 export default async function Home(props: PageProps<"/[lang]">) {
   const { lang } = await props.params;
@@ -74,7 +74,7 @@ export default async function Home(props: PageProps<"/[lang]">) {
               >
                 <div data-shape="quarter" className="h-full w-full rounded-[100%_0_0_0] bg-blue" />
                 <div data-shape="circle" className="h-full w-full rounded-full bg-red" />
-                <div data-shape="bar" className="h-full w-full rounded-[0_0_0_100%] bg-cream" />
+                <div data-shape="bar" className="h-full w-full rounded-[0_0_0_100%] shape-cream" />
                 <div data-shape="square" className="h-full w-full bg-yellow" />
               </ShapesIntro>
             </div>
@@ -104,7 +104,7 @@ export default async function Home(props: PageProps<"/[lang]">) {
             >
               <div data-shape="quarter" className="h-full w-full rounded-[100%_0_0_0] bg-blue" />
               <div data-shape="circle" className="h-full w-full rounded-full bg-red" />
-              <div data-shape="bar" className="flex h-full w-full items-end justify-end rounded-[0_0_0_100%] bg-cream p-5">
+              <div data-shape="bar" className="flex h-full w-full items-end justify-end rounded-[0_0_0_100%] shape-cream p-5">
                 <span className="font-display text-[22px] italic text-ink">{dict.home.hero.volume}</span>
               </div>
               <div data-shape="square" className="h-full w-full bg-yellow" />
