@@ -424,7 +424,62 @@
     }
   },
   "contact": {
-    "title": "Get in touch"
+    "title": "Get in touch",
+    "titleEm": "touch",
+    "available": "Available",
+    "form": {
+      "label": "Contact form",
+      "subject": {
+        "legend": "Subject",
+        "options": {
+          "job": "Job offer",
+          "freelance": "Freelance project",
+          "other": "Something else"
+        },
+        "fallback": "Contact"
+      },
+      "optional": "(optional)",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "honeypot": "Leave this field empty",
+      "errors": {
+        "nameMissing": "Please enter your name.",
+        "emailMissing": "Please enter your email address.",
+        "emailInvalid": "This email address looks incomplete (e.g. jane@company.com).",
+        "messageMissing": "Please write your message."
+      },
+      "submit": "Send",
+      "sending": "Sending…",
+      "promise": "Reply within 48 hours",
+      "success": {
+        "title": "Message sent, thank you!",
+        "body": "I’ll get back to you at {email} within 48 hours."
+      },
+      "error": {
+        "title": "Your message wasn’t sent.",
+        "body": "Everything you wrote is still here: try again in a moment, or email me directly at {email}."
+      },
+      "noscript": "The form needs JavaScript. Email me directly:"
+    },
+    "direct": {
+      "title": "Directly",
+      "email": "Email",
+      "copy": "Copy",
+      "copyLabel": "Copy email address",
+      "copied": "Copied",
+      "copiedAnnounce": "Email address copied",
+      "copyFailed": "Couldn’t copy: select the address instead",
+      "elsewhere": "Elsewhere"
+    },
+    "cv": {
+      "title": "CV",
+      "download": "Download my CV",
+      "lang": "English",
+      "file": "{lang} · PDF · {size}",
+      "sizeUnit": "KB",
+      "other": "Also in French"
+    }
   },
   "footer": {
     "headline": "Let’s talk.",
@@ -444,7 +499,7 @@
     },
     "contact": {
       "title": "Contact",
-      "description": "Get in touch with {name}: email, GitHub, LinkedIn."
+      "description": "Get in touch with {name}: contact form, email, LinkedIn, GitHub and CV (PDF)."
     }
   },
   "notFound": {

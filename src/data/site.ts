@@ -10,4 +10,7 @@ export const site: Site = {
     email: "eliot.pechdi@gmail.com",
     linkedin: "https://www.linkedin.com/in/eliot-pechdimaldji",
   },
+  // Formulaire de contact (Web3Forms) : clé publique par conception, elle ne
+  // permet que d'envoyer un message vers l'adresse associée au compte.
+  web3formsKey: "c3f7a1f0-38ad-4f0d-85a1-6488343474b9",
 };
