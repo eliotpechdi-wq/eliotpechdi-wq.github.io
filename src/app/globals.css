@@ -19,15 +19,17 @@
    Clair (--bg #F5F0E6, --surface #FBF8F2, --cream #E8DCC4)
      --fg      #141310  16.36 sur bg · 17.53 sur surface
      --soft    #3A372F  10.46 sur bg · 11.21 sur surface
-     --muted   #5E594E   6.13 sur bg ·  6.57 sur surface · 5.17 sur cream
+     --muted   #5E594E   6.13 sur bg ·  6.57 sur surface · 5.13 sur cream
      --highlight #8A6500 (ocre)  4.69 sur bg · 5.03 sur surface
+     --cream #E8DCC4 (sable) sur bg : 1.20 (crème d’origine : 1.04) ; décor
+     --ink (focus) sur bg 16.89 · --yellow seul sur bg 1.47 (insuffisant)
 
    Communs aux deux thèmes (surfaces colorées, inchangées)
-     --ink #0F0F0D sur --yellow  11.49 · sur cream sombre 16.12 · sur cream clair 14.24
-     #36332B (soft) sur --yellow 7.55 · sur cream sombre 10.59 · sur cream clair 9.36
+     --ink #0F0F0D sur --yellow  11.49 · sur cream sombre 16.12 · sur cream clair 14.13
+     #36332B (soft) sur --yellow 7.55 · sur cream sombre 10.59 · sur cream clair 9.29
      blanc sur --blue #3460E0     5.39 · #EEF1FD sur blue 4.78
      blanc sur --red  #D63D27     4.61 (ancien #E0452F : 4.15, insuffisant)
-     cream sur --ink (pastille)   16.12 sombre · 14.24 clair
+     cream sur --ink (pastille)   16.12 sombre · 14.13 clair
    --------------------------------------------------------------- */
 :root {
   --bg: #0f0f0d; /* fond */
@@ -63,7 +65,7 @@
     --highlight: #8a6500;
     /* Crème → sable : sur papier, le crème d'origine (#EFEBE1) se confondait
        avec le fond (1.04:1). Le sable reste une couleur claire (texte --ink à
-       14.24:1) mais se détache du papier ; les formes crème reçoivent en plus
+       14.13:1) mais se détache du papier ; les formes crème reçoivent en plus
        un filet d'encre intérieur (utilitaire shape-cream, voir plus bas). */
     --cream: #e8dcc4;
     color-scheme: light;
@@ -166,7 +168,7 @@
     border-radius: 4px;
   }
 
-  /* Sur jaune ou crème, l'anneau passe à l'encre (11.49 / 14.24–16.12:1). */
+  /* Sur jaune ou crème, l'anneau passe à l'encre (11.49 / 14.13–16.12:1). */
   .bg-yellow :focus-visible,
   .bg-cream :focus-visible {
     outline-color: var(--ink);
@@ -182,7 +184,7 @@
 }
 
 /* Thème clair : le jaune seul ne fait que 1.47:1 sur le papier. L'anneau
-   devient encre (16.36:1 sur bg) et garde le jaune en liseré intérieur,
+   devient encre (16.89:1 sur bg) et garde le jaune en liseré intérieur,
    dans l'écart de 3px de outline-offset (aucun décalage de mise en page). */
 @layer base {
   @media (prefers-color-scheme: light) {

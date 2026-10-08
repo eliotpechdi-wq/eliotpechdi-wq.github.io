@@ -18,8 +18,8 @@ export const shapeRadius: Record<Shape, string> = {
  * ne changent pas avec le thème, sauf le crème : #EFEBE1 sombre, #E8DCC4 clair) :
  *   blue   : blanc 5.39 · soft #EEF1FD 4.78 · pastille --ink sur jaune 11.49
  *   red    : blanc 4.61 · soft blanc 4.61 (#FDEEEB ne faisait que 3.68 sur rouge)
- *   yellow : --ink 11.49 · soft #36332B 7.55 · pastille crème sur --ink 16.12 / 14.24
- *   cream  : --ink 16.12 / 14.24 · soft #36332B 10.59 / 9.36 · pastille idem
+ *   yellow : --ink 11.49 · soft #36332B 7.55 · pastille crème sur --ink 16.12 / 14.13
+ *   cream  : --ink 16.12 / 14.13 · soft #36332B 10.59 / 9.29 · pastille idem
  * Les formes utilisent --ink plutôt que --bg : sur fond clair, --bg vaudrait
  * le papier et la forme noire sur rouge deviendrait une forme crème.
  */
