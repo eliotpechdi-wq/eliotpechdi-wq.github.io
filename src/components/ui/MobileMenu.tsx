@@ -3,10 +3,22 @@
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { Locale } from "@/i18n/config";
+import { LangSwitch, type LangSwitchLabels } from "./LangSwitch";
 import { currentFor, type NavLink } from "./nav";
 
 /** Bouton burger + menu déroulant (< 768px). */
-export function MobileMenu({ links }: { links: NavLink[] }) {
+export function MobileMenu({
+  links,
+  labels,
+  lang,
+  langLabels,
+}: {
+  links: NavLink[];
+  labels: { label: string; open: string; close: string };
+  lang: Locale;
+  langLabels: LangSwitchLabels;
+}) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   // Le header vit dans le layout : on referme le menu à chaque changement de page.
@@ -53,7 +65,7 @@ export function MobileMenu({ links }: { links: NavLink[] }) {
         type="button"
         aria-expanded={open}
         aria-controls={panelId}
-        aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+        aria-label={open ? labels.close : labels.open}
         onClick={() => setOpen((o) => !o)}
         className="flex h-11 w-11 cursor-pointer flex-col items-center justify-center gap-[5px] rounded-full border-[1.5px] border-fg bg-transparent"
       >
@@ -77,7 +89,7 @@ export function MobileMenu({ links }: { links: NavLink[] }) {
         hidden={!open}
         className="absolute inset-x-0 top-full border-b border-line bg-bg px-5 pb-6"
       >
-        <nav aria-label="Menu principal">
+        <nav aria-label={labels.label}>
           <ul className="flex flex-col">
             {links.map((l) => {
               const current = currentFor(pathname, l.href);
@@ -110,6 +122,7 @@ export function MobileMenu({ links }: { links: NavLink[] }) {
             })}
           </ul>
         </nav>
+        <LangSwitch lang={lang} labels={langLabels} className="mt-4 -ml-1.5 text-[15px] font-semibold" />
       </div>
     </div>
   );

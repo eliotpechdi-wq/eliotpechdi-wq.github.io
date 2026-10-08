@@ -1,16 +1,30 @@
 import type { Metadata } from "next";
-import { projects } from "@/data/projects";
-import { INTRO } from "@/data/site";
+import { notFound } from "next/navigation";
+import { getProjects } from "@/data/projects";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { SiteFooter } from "@/components/ui/SiteFooter";
+import { TitleWithEm } from "@/components/ui/text";
+import { getDictionary, hasLocale, t } from "@/i18n";
+import { alternatesFor } from "@/i18n/metadata";
 
-export const metadata: Metadata = {
-  title: "Projets",
-  description: INTRO,
-};
+export async function generateMetadata(props: PageProps<"/[lang]/projets">): Promise<Metadata> {
+  const { lang } = await props.params;
+  if (!hasLocale(lang)) return {};
+  const dict = getDictionary(lang);
+  return {
+    title: dict.meta.projects.title,
+    description: dict.site.intro,
+    alternates: alternatesFor(lang, "/projets/"),
+  };
+}
 
-export default function ProjectsPage() {
+export default async function ProjectsPage(props: PageProps<"/[lang]/projets">) {
+  const { lang } = await props.params;
+  if (!hasLocale(lang)) notFound();
+  const dict = getDictionary(lang);
+  const projects = getProjects(lang);
+
   return (
     <>
       <main id="contenu">
@@ -23,10 +37,10 @@ export default function ProjectsPage() {
               id="projets-titre"
               className="m-0 font-display text-[44px] font-light tracking-[-0.03em] md:text-[80px]"
             >
-              Les <em>projets</em>
+              <TitleWithEm title={dict.projects.title} em={dict.projects.titleEm} />
             </h1>
             <span className="hidden text-sm font-semibold text-muted md:inline">
-              {String(projects.length).padStart(2, "0")} récits
+              {t(dict.projects.count, { count: String(projects.length).padStart(2, "0") })}
             </span>
           </Reveal>
 
@@ -35,7 +49,7 @@ export default function ProjectsPage() {
               {projects.map((p) => (
                 <li key={p.slug}>
                   <StaggerItem className="h-full">
-                    <ProjectCard project={p} />
+                    <ProjectCard project={p} lang={lang} dict={dict} />
                   </StaggerItem>
                 </li>
               ))}
@@ -44,7 +58,7 @@ export default function ProjectsPage() {
         </section>
       </main>
 
-      <SiteFooter />
+      <SiteFooter dict={dict} />
     </>
   );
 }

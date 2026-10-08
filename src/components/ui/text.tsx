@@ -22,11 +22,14 @@ export function TitleWithEm({
   );
 }
 
-/** Entoure une citation de guillemets français (sauf s'ils y sont déjà). */
-export function withGuillemets(text: string) {
+/**
+ * Entoure une citation des guillemets de la langue (sauf s'ils y sont déjà).
+ * `pattern` vient du dictionnaire (common.quote) : "« {text} »", "“{text}”"…
+ */
+export function withGuillemets(text: string, pattern = "« {text} »") {
   const t = text.trim();
-  if (t.startsWith("«")) return t;
-  return `« ${t} »`;
+  if (/^[«“"]/.test(t)) return t;
+  return pattern.replace("{text}", t);
 }
 
 const ROMAN = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"];

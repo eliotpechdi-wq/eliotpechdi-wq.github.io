@@ -27,15 +27,25 @@ export type Project = {
   demo?: string;
 };
 
+/**
+ * Données non textuelles d'un projet (src/data/projects.ts). Les textes
+ * (titre, récit, légendes…) sont dans src/i18n/<langue>.json sous
+ * projects.items.<slug> ; localizeProject() assemble le `Project` complet.
+ */
+export type ProjectData = Pick<Project, "slug" | "num" | "year" | "accent" | "shape" | "repo" | "demo"> & {
+  cover?: string; // chemin de l'image de couverture
+  steps: { image?: string }[]; // une entrée par étape du récit (dans l'ordre du JSON)
+};
+
+/** Textes d'un projet dans le dictionnaire (projects.items.<slug>). */
+export type ProjectText = Pick<Project, "title" | "titleEm" | "field" | "summary" | "role" | "team" | "duration" | "tools" | "quote"> & {
+  cover?: { alt: string; caption?: string };
+  steps: { title: string; body: string; image?: { alt: string; caption?: string } }[];
+};
+
+/** Données non textuelles du site ; les textes (tagline, about…) sont dans src/i18n/. */
 export type Site = {
   name: string;
-  school: string;
-  city: string;
-  role: string; // ex. "Élève ingénieur"
-  tagline: string;
-  lookingFor: string;
-  quote: string;
-  about: string;
-  stats: { value: string; label: string }[];
+  stats: { projects: string; experience: string }; // valeurs des tuiles du profil
   links: { github: string; email: string; linkedin: string };
 };
