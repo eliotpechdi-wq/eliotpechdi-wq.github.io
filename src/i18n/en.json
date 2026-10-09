@@ -57,10 +57,10 @@
         "duration": "7 months (internship)",
         "tools": [
           "Fusion 360",
-          "On-site measurements",
-          "Technical drawings",
-          "Subcontracting",
-          "Quotes"
+          "on-site measurements",
+          "technical drawings",
+          "subcontracting",
+          "quotes"
         ],
         "cover": {
           "alt": "3D render of a six-cylinder Scania engine sitting on its welded steel cradle, with the reversing gearbox at the back.",
@@ -103,10 +103,10 @@
         "duration": "6 months",
         "tools": [
           "Mechanical design",
-          "Hydraulics",
-          "Electronics",
-          "Subcontracting",
-          "Testing"
+          "hydraulics",
+          "electronics",
+          "subcontracting",
+          "testing"
         ],
         "steps": [
           {
@@ -270,8 +270,8 @@
         "duration": "A few weeks",
         "tools": [
           "Excel",
-          "Pivot tables",
-          "Hourly profiles (8,760 h)"
+          "pivot tables",
+          "hourly profiles (8,760 h)"
         ],
         "cover": {
           "alt": "Demand and generation curves for an average January–February day: generation exceeds demand in the morning and falls below it in the evening.",
@@ -314,9 +314,9 @@
         "duration": "One semester",
         "tools": [
           "Value Proposition Canvas",
-          "User journey",
-          "Market sizing",
-          "Mobile app prototype"
+          "user journey",
+          "market sizing",
+          "mobile app prototype"
         ],
         "cover": {
           "alt": "Flowchart for handling an incident: triage between minor and major incidents, a tradesperson sent out, rehousing and refund if needed, within 24 business hours at most.",
@@ -360,7 +360,7 @@
         "tools": [
           "CATIA",
           "Excel",
-          "Kinematic diagrams"
+          "kinematic diagrams"
         ],
         "cover": {
           "alt": "Section A-A of the brake disc at 1:2 scale, with diameters of 70, 100 and 110 mm and six bolt holes.",
