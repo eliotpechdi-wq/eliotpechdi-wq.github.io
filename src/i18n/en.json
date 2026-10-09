@@ -204,7 +204,7 @@
           },
           {
             "title": "Result",
-            "body": "No single product reproduced RC92: Bio TK came closest (≈ 20% mean deviation), but it is only compostable. I then implemented the blend model suggested by our supervisor, using two Limonta granulates in 1 mm thickness steps, to match RC92’s stiffness on unloading at 2,500 N. In theory, the 8 blends selected deviated from the reference stiffness by ≈ 0.4% to ≈ 4.2%; they still needed to be validated by testing.",
+            "body": "No single product reproduced RC92: Bio TK came closest (≈ 20% mean deviation), but it is only compostable. I then implemented the blend model suggested by our supervisor, using two Limonta granulates in 1 mm thickness steps, to match RC92’s stiffness on unloading at 2,500 N. In theory, the 8 blends selected deviated from the reference stiffness by ≈ 0.4% to ≈ 4.2%; they still need to be validated by testing.",
             "image": {
               "alt": "Bar chart of the theoretical stiffness deviation of the eight proposed blends from RC92.",
               "caption": "Theoretical stiffness deviation of the proposed blends from RC92."
