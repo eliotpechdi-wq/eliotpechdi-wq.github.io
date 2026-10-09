@@ -69,7 +69,7 @@
         "steps": [
           {
             "title": "Context",
-            "body": "Monaco Marine is a shipyard specialising in the refit and heavy maintenance of yachts and performance sailboats. I followed some twenty jobs there, from €30k to €650k, including a complete €400k repowering.\n\nMy role: feasibility studies, measurements in the workshop, 3D modelling in Fusion 360, consulting subcontractors and preparing quotes. And acting as the link between the client, the workshop, the naval architect and the technical management.",
+            "body": "Monaco Marine is a shipyard specialising in the refit and heavy maintenance of yachts and performance sailboats. I followed some twenty jobs there, from €30k to €650k, including a complete €400k repowering.\n\nMy role: feasibility studies, measurements in the workshop, 3D modelling in Fusion 360, consulting subcontractors and preparing quotes, as well as acting as the link between the client, the workshop, the naval architect and the technical management.",
             "image": {
               "alt": "Left, a photo of the bow thruster tunnel under the hull; right, the support part modelled in 3D.",
               "caption": "The bow thruster tunnel on the boat, and the support part I modelled."
@@ -117,7 +117,7 @@
           },
           {
             "title": "Result",
-            "body": "The most telling case: a compact maritime camera mount that can be deployed quickly. One week from the initial need to the sea trial.\n\nI designed and built it myself, on a small budget and with reused materials. Then I improved it after the trials."
+            "body": "The most telling case: a compact maritime camera mount that could be deployed quickly. One week from the initial need to the sea trial.\n\nI designed and built it myself, on a small budget and with reused materials. Then I improved it after the trials."
           }
         ]
       },
@@ -145,7 +145,7 @@
         "steps": [
           {
             "title": "Context",
-            "body": "In a data science module for industry, we started by building a complete IoT pipeline. An ESP32 reads the accelerometer and gyroscope of an MPU6050 and publishes each axis over MQTT; a Mosquitto broker and a Python client (paho-mqtt) log the measurements to a CSV file.",
+            "body": "In a data science module for industry, we started by building a complete IoT pipeline. An ESP32 read the accelerometer and gyroscope of an MPU6050 and published each axis over MQTT; a Mosquitto broker and a Python client (paho-mqtt) logged the measurements to a CSV file.",
             "image": {
               "alt": "Raw x, y and z acceleration signals from the MPU6050, with a shaking phase followed by a return to rest.",
               "caption": "Raw accelerations received over MQTT (≈ 2,580 samples per axis)."
@@ -153,7 +153,7 @@
           },
           {
             "title": "Approach",
-            "body": "The predictive maintenance project used time series from a Bosch multi-sensor unit, to be classified into 5 simulated operating states, from “lowest” to “highest”. I wrote the entire Python pipeline on my own: slicing the signals into 300-point windows, then turning each window into a persistence image (topological data analysis, ripser + persim) across 9 measured quantities. These images feed a 20-tree random forest, trained on 80% of the windows.",
+            "body": "The predictive maintenance project used time series from a Bosch multi-sensor unit, to be classified into 5 simulated operating states, from “lowest” to “highest”. I wrote the entire Python pipeline on my own: slicing the signals into 300-point windows, then turning each window into a persistence image (topological data analysis, ripser + persim) across 9 measured quantities. These images fed a 20-tree random forest, trained on 80% of the windows.",
             "image": {
               "alt": "Six 20×20 persistence images computed on different quantities measured by the sensor.",
               "caption": "Persistence images computed on one signal window, one per quantity."
@@ -161,7 +161,7 @@
           },
           {
             "title": "Result",
-            "body": "On the 20% of windows held out for testing, the random forest correctly classifies 69 out of 72, or about 95%. The few errors occur between neighbouring modes; the “highest” class, with very little data, remains the weakest.",
+            "body": "On the 20% of windows held out for testing, the random forest correctly classified 69 out of 72, or about 95%. The few errors occurred between neighbouring modes; the “highest” class, with very little data, remained the weakest.",
             "image": {
               "alt": "Decision tree about ten levels deep, exported from scikit-learn.",
               "caption": "One of the decision trees in the random forest."
@@ -196,7 +196,7 @@
           },
           {
             "title": "Approach",
-            "body": "We tested 17 infills in confined compression: 24 mm of material in a tube 7 cm in diameter, 3 cycles at 40 mm/min up to 2,500 N (0.65 MPa, the load set by the World Rugby standard). I wrote the MATLAB analysis pipeline on my own: it splits each test into cycles and computes dissipated energy, compaction, rigidity and stiffness, then each infill’s percentage deviation from RC92.",
+            "body": "We tested 17 infills in confined compression: 24 mm of material in a tube 7 cm in diameter, 3 cycles at 40 mm/min up to 2,500 N (0.65 MPa, the load set by the World Rugby standard). I wrote the MATLAB analysis pipeline on my own: it split each test into cycles and computed dissipated energy, compaction, rigidity and stiffness, then each infill’s percentage deviation from RC92.",
             "image": {
               "alt": "Bar chart of the mean percentage deviation of each tested infill from the RC92 reference.",
               "caption": "Mean deviation from the RC92 reference for each tested infill (unweighted)."
@@ -204,7 +204,7 @@
           },
           {
             "title": "Result",
-            "body": "No single product reproduces RC92: Bio TK comes closest (≈ 20% mean deviation), but it is only compostable. I then implemented the blend model suggested by our supervisor, using two Limonta granulates in 1 mm thickness steps, to match RC92’s stiffness on unloading at 2,500 N. In theory, the 8 blends selected deviate from the reference stiffness by ≈ 0.4% to ≈ 4.2%; they still need to be validated by testing.",
+            "body": "No single product reproduced RC92: Bio TK came closest (≈ 20% mean deviation), but it is only compostable. I then implemented the blend model suggested by our supervisor, using two Limonta granulates in 1 mm thickness steps, to match RC92’s stiffness on unloading at 2,500 N. In theory, the 8 blends selected deviated from the reference stiffness by ≈ 0.4% to ≈ 4.2%; they still needed to be validated by testing.",
             "image": {
               "alt": "Bar chart of the theoretical stiffness deviation of the eight proposed blends from RC92.",
               "caption": "Theoretical stiffness deviation of the proposed blends from RC92."
@@ -242,7 +242,7 @@
           },
           {
             "title": "Approach",
-            "body": "Using CES EduPack (Granta), we compared plywood, steels, titanium, PLA and carbon composite on stiffness, density, price and carbon impact. Carbon composite came out as the most promising option, with resin infusion as the process. I then did all the CAD for the foot in CATIA, for a PLA-printed prototype, and we processed gait recordings (markers and force plates) in MATLAB to estimate ankle angles and moments.\n\nThe Abaqus simulation shows where the foot does its work: stresses concentrate in the vertical section and at the heel.",
+            "body": "Using CES EduPack (Granta), we compared plywood, steels, titanium, PLA and carbon composite on stiffness, density, price and carbon impact. Carbon composite came out as the most promising option, with resin infusion as the process. I then did all the CAD for the foot in CATIA, for a PLA-printed prototype, and we processed gait recordings (markers and force plates) in MATLAB to estimate ankle angles and moments.\n\nThe Abaqus simulation showed where the foot did its work: stresses concentrated in the vertical section and at the heel.",
             "image": {
               "alt": "Mesh of the prosthetic foot in Abaqus, coloured by von Mises stress: blue on the forefoot, green and yellow in the blade and heel.",
               "caption": "Abaqus simulation: von Mises stresses in the loaded foot."
@@ -250,7 +250,7 @@
           },
           {
             "title": "Result",
-            "body": "As a group, we validated the foot through simulation and compression tests. The two force–displacement tests line up with the simulation up to about 30 mm of compression, and reach about 1,300 N: a good match.",
+            "body": "As a group, we validated the foot through simulation and compression tests. The force–displacement curves from the two tests lined up with the simulation curve up to about 30 mm of compression, and reached about 1,300 N: a good match.",
             "image": {
               "alt": "Force–displacement curves from two tests compared with a simulation curve, very close up to 30 mm.",
               "caption": "Two tests compared with the simulation for the first foot (test data replotted)."
@@ -278,7 +278,7 @@
         "steps": [
           {
             "title": "Context",
-            "body": "Sustainable Energy course at the University of Queensland. The brief: San Lucia, a fictional city that wants to leave the grid and run on 100% wind and solar, storage included.\n\nI started with demand. Over the year: 1.90 TWh, or 216.6 MW on average, with peaks at 9 am and 7 pm. January and June–July are the busiest months.",
+            "body": "Sustainable Energy course at the University of Queensland. The brief: San Lucia, a fictional city that wanted to leave the grid and run on 100% wind and solar, storage included.\n\nI started with demand. Over the year: 1.90 TWh, or 216.6 MW on average, with peaks at 9 am and 7 pm. January and June–July were the busiest months.",
             "image": {
               "alt": "Bar chart of monthly demand, between 141 and 177 GWh; January, June and July are the highest.",
               "caption": "San Lucia’s monthly demand, replotted from the hourly data provided in the brief."
@@ -286,7 +286,7 @@
           },
           {
             "title": "Approach",
-            "body": "Next, generation. A 5.6 MW wind site also runs at night; a 1 MW solar site only produces during the day. With the storage size fixed, I went for the steadier source: about 80% wind and 20% solar in the energy produced.\n\nI assumed a 70% round-trip efficiency, on the basis that all the energy goes through storage once. Then I looked for the multiplier that covers the worst months, January and February.",
+            "body": "Next, generation. A 5.6 MW wind site also runs at night; a 1 MW solar site only produces during the day. With the storage size fixed, I went for the steadier source: about 80% wind and 20% solar in the energy produced.\n\nI assumed a 70% round-trip efficiency, on the basis that all the energy went through storage once. Then I looked for the multiplier that covered the worst months, January and February.",
             "image": {
               "alt": "Power profiles over an average day: the wind site produces between 1.6 and 3.1 MW all day, the solar site peaks at 0.66 MW around midday.",
               "caption": "Average day for a 5.6 MW wind site and a 1 MW solar site."
@@ -294,7 +294,7 @@
           },
           {
             "title": "Result",
-            "body": "It takes 57 wind turbines of 5.6 MW and 57 solar units of 1 MW: 376.2 MW installed, 319.2 MW of it wind. In January–February, generation covers 97% of demand: 5,535 MWh a day for 5,688 MWh required.\n\nThe rest of the year, the morning surplus is huge. I suggested storing it or putting it to other uses. And I pointed out a limitation: pumped-hydro storage in such a dry country is probably a bad idea. Compressed air is an option worth exploring.",
+            "body": "It took 57 wind turbines of 5.6 MW and 57 solar units of 1 MW: 376.2 MW installed, 319.2 MW of it wind. In January–February, generation covered 97% of demand: 5,535 MWh a day for 5,688 MWh required.\n\nThe rest of the year, the morning surplus was huge. I suggested storing it or putting it to other uses. And I pointed out a limitation: pumped-hydro storage in such a dry country is probably a bad idea. Compressed air is an option worth exploring.",
             "image": {
               "alt": "Demand and generation curves for an average day of the year: a large surplus from 6 am to 4 pm, a slight deficit in the evening.",
               "caption": "Average day over the year: a big surplus in the morning, a slight deficit in the evening. Figures from my report, replotted."
@@ -323,7 +323,7 @@
         "steps": [
           {
             "title": "Context",
-            "body": "A group innovation project during my master’s at the University of Queensland. The topic: customer experience in short-term rentals.\n\nBy studying the Australian market and the traveller journey, we saw where existing platforms fall short: customer service and incident handling.",
+            "body": "A group innovation project during my master’s at the University of Queensland. The topic: customer experience in short-term rentals.\n\nBy studying the Australian market and the traveller journey, we saw where existing platforms fell short: customer service and incident handling.",
             "image": {
               "alt": "Nested circles showing the market sizing, from 8,794,000 visitors a year down to 400,000 visitors over 35, with key figures for Brisbane.",
               "caption": "Market sizing (sources cited on the project board)."
@@ -331,7 +331,7 @@
           },
           {
             "title": "Approach",
-            "body": "First, the size of the market. 8,794,000 visitors a year according to Tourism Research Australia (2024), of whom 879,400 rent accommodation and 400,000 are over 35. Our target: 80,000 customers a year, or 220 a day. Brisbane alone has 15,000 Airbnb listings.\n\nThen the value proposition, built with a Value Proposition Canvas: verified listings, a 24/7 hotline, guaranteed rehousing, partnerships with local services.",
+            "body": "First, the size of the market. 8,794,000 visitors a year according to Tourism Research Australia (2024), of whom 879,400 rented accommodation and 400,000 were over 35. Our target: 80,000 customers a year, or 220 a day. Brisbane alone had 15,000 Airbnb listings.\n\nThen the value proposition, built with a Value Proposition Canvas: verified listings, a 24/7 hotline, guaranteed rehousing, partnerships with local services.",
             "image": {
               "alt": "Complete Value Proposition Canvas: products and services, gain creators and pain relievers set against the traveller’s jobs, gains and pains.",
               "caption": "Our Value Proposition Canvas."
@@ -339,7 +339,7 @@
           },
           {
             "title": "Result",
-            "body": "The heart of the service comes down to one promise: 24 business hours at most between the problem and its resolution. A minor incident triggers a call-out for a tradesperson. A major incident gets a response in under 4 hours; if it can’t be fixed within 24 hours, the guest is rehoused and partly refunded.\n\nWe wrapped up with a prototype built into a mobile app.",
+            "body": "The heart of the service came down to one promise: 24 business hours at most between the problem and its resolution. A minor incident triggered a call-out for a tradesperson. A major incident got a response in under 4 hours; if it couldn’t be fixed within 24 hours, the guest was rehoused and partly refunded.\n\nWe wrapped up with a prototype built into a mobile app.",
             "image": {
               "alt": "Detail of the flowchart: a minor incident leads to a tradesperson being sent out; a major incident leads to a repair in under 24 hours, or to rehousing with a partial refund.",
               "caption": "Minor or major incident: the two paths to resolution."
@@ -367,7 +367,7 @@
         "steps": [
           {
             "title": "Context",
-            "body": "A design project at Arts et Métiers Paris, in pairs, over one semester: designing the braking assembly of a light aircraft from scratch.\n\nThe specification sets the boundaries. A 685 kg aircraft, braking that starts at 53 m/s, a maximum deceleration of 4 m/s², a disc between 32 and 125 mm in diameter.",
+            "body": "A design project at Arts et Métiers Paris, in pairs, over one semester: designing the braking assembly of a light aircraft from scratch.\n\nThe specification set the boundaries. A 685 kg aircraft, braking that started at 53 m/s, a maximum deceleration of 4 m/s², a disc between 32 and 125 mm in diameter.",
             "image": {
               "alt": "Specification table: mass 685 kg, speed 53 m/s, deceleration 4 m/s², disc diameter from 32 to 125 mm, residual thrust 400 N.",
               "caption": "The specification from the brief, reformatted."
@@ -375,7 +375,7 @@
           },
           {
             "title": "Approach",
-            "body": "We drew 13 kinematic diagrams, from A to M, and scored each one on 3 criteria: robustness, ease of assembly, footprint.\n\nThen came the sizing. 204 N·m of braking torque has to be transmitted to the wheel. We routed it through 6 M8 bolts: 5,400 N of load per bolt, with a tightening torque of 12.7 N·m.",
+            "body": "We drew 13 kinematic diagrams, from A to M, and scored each one on 3 criteria: robustness, ease of assembly, footprint.\n\nThen came the sizing. 204 N·m of braking torque had to be transmitted to the wheel. We routed it through 6 M8 bolts: 5,400 N of load per bolt, with a tightening torque of 12.7 N·m.",
             "image": {
               "alt": "Four hand-drawn kinematic diagrams labelled A, B, C and D, with joints in blue and bearings in green.",
               "caption": "Four of the 13 kinematic diagram variants, drawn by hand."
@@ -383,7 +383,7 @@
           },
           {
             "title": "Result",
-            "body": "For the bearings, the aircraft’s mass is spread over 2 wheels. Back-to-back (O) arrangement, 60 mm between centres, bearings with a 45 mm outer diameter: the calculated preload is 2,400 N, and the left-hand bearing takes the most load.",
+            "body": "For the bearings, the aircraft’s mass was spread over 2 wheels. Back-to-back (O) arrangement, 60 mm between centres, bearings with a 45 mm outer diameter: the calculated preload was 2,400 N, and the left-hand bearing took the most load.",
             "image": {
               "alt": "Technical section of the wheel axle with two tapered roller bearings mounted back-to-back, 60 mm apart.",
               "caption": "Section of the back-to-back (O) bearing arrangement, 60 mm between centres."
