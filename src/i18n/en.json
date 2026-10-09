@@ -163,7 +163,7 @@
           },
           {
             "title": "Result",
-            "body": "On the 20% of windows held out for testing, the random forest correctly classifies 69 out of 72, or about 95%. The few errors occur between neighbouring modes; the “highest” class, with very little data, remains the weakest.",
+            "body": "On the 20% of windows held out for testing, the random forest correctly classifies 69 out of 72, or about 96%. The few errors occur between neighbouring modes; the “highest” class, with very little data, remains the weakest.",
             "image": {
               "alt": "Decision tree about ten levels deep, exported from scikit-learn.",
               "caption": "One of the decision trees in the random forest."
@@ -176,12 +176,12 @@
         "titleEm": "microplastics",
         "field": "Materials & testing",
         "summary": "Finding a microplastic-free infill for Racing 92’s artificial pitches that behaves like the current one.",
-        "role": "Matlab analysis pipeline, written solo",
+        "role": "MATLAB analysis pipeline, written solo",
         "team": "Group project",
         "duration": "≈ 2 months",
         "tools": [
           "Compression testing",
-          "Matlab"
+          "MATLAB"
         ],
         "cover": {
           "alt": "Force–displacement curves over three compression cycles for the RC92 reference infill, Bio TK and Pinefill.",
@@ -198,7 +198,7 @@
           },
           {
             "title": "Approach",
-            "body": "We tested 17 infills in confined compression: 24 mm of material in a tube 7 cm in diameter, 3 cycles at 40 mm/min up to 2,500 N (0.65 MPa, the load set by the World Rugby standard). I wrote the Matlab analysis pipeline on my own: it splits each test into cycles and computes dissipated energy, compaction, rigidity and stiffness, then each infill’s percentage deviation from RC92.",
+            "body": "We tested 17 infills in confined compression: 24 mm of material in a tube 7 cm in diameter, 3 cycles at 40 mm/min up to 2,500 N (0.65 MPa, the load set by the World Rugby standard). I wrote the MATLAB analysis pipeline on my own: it splits each test into cycles and computes dissipated energy, compaction, rigidity and stiffness, then each infill’s percentage deviation from RC92.",
             "image": {
               "alt": "Bar chart of the mean percentage deviation of each tested infill from the RC92 reference.",
               "caption": "Mean deviation from the RC92 reference for each tested infill (unweighted)."
@@ -226,7 +226,7 @@
           "CES EduPack (Granta)",
           "CATIA",
           "Abaqus",
-          "Matlab",
+          "MATLAB",
           "Excel"
         ],
         "cover": {
@@ -244,7 +244,7 @@
           },
           {
             "title": "Approach",
-            "body": "Using CES EduPack (Granta), we compared plywood, steels, titanium, PLA and carbon composite on stiffness, density, price and carbon impact. Carbon composite came out as the most promising option, with resin infusion as the process. I then did all the CAD for the foot in CATIA, for a PLA-printed prototype, and we processed gait recordings (markers and force plates) in Matlab to estimate ankle angles and moments.\n\nThe Abaqus simulation shows where the foot does its work: stresses concentrate in the vertical section and at the heel.",
+            "body": "Using CES EduPack (Granta), we compared plywood, steels, titanium, PLA and carbon composite on stiffness, density, price and carbon impact. Carbon composite came out as the most promising option, with resin infusion as the process. I then did all the CAD for the foot in CATIA, for a PLA-printed prototype, and we processed gait recordings (markers and force plates) in MATLAB to estimate ankle angles and moments.\n\nThe Abaqus simulation shows where the foot does its work: stresses concentrate in the vertical section and at the heel.",
             "image": {
               "alt": "Mesh of the prosthetic foot in Abaqus, coloured by von Mises stress: blue on the forefoot, green and yellow in the blade and heel.",
               "caption": "Abaqus simulation: von Mises stresses in the loaded foot."
@@ -255,7 +255,7 @@
             "body": "As a group, we validated the foot through simulation and compression tests. The two force–displacement tests line up with the simulation up to about 30 mm of compression, and reach about 1,300 N: a good match.",
             "image": {
               "alt": "Force–displacement curves from two tests compared with a simulation curve, very close up to 30 mm.",
-              "caption": "Two tests vs simulation for the first foot (test data replotted)."
+              "caption": "Two tests compared with the simulation for the first foot (test data replotted)."
             }
           }
         ]
@@ -377,7 +377,7 @@
           },
           {
             "title": "Approach",
-            "body": "We drew 13 kinematic diagrams, from A to M, and scored each one on 3 criteria: robustness, ease of assembly, footprint.\n\nThen came the sizing. 204 Nm of braking torque has to be transmitted to the wheel. We routed it through 6 M8 bolts on a 65 mm diameter circle: 5,400 N of load per bolt, with a tightening torque of 12.7 Nm.",
+            "body": "We drew 13 kinematic diagrams, from A to M, and scored each one on 3 criteria: robustness, ease of assembly, footprint.\n\nThen came the sizing. 204 N·m of braking torque has to be transmitted to the wheel. We routed it through 6 M8 bolts on a 65 mm diameter circle: 5,400 N of load per bolt, with a tightening torque of 12.7 N·m.",
             "image": {
               "alt": "Four hand-drawn kinematic diagrams labelled A, B, C and D, with joints in blue and bearings in green.",
               "caption": "Four of the 13 kinematic diagram variants, drawn by hand."
