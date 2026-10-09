@@ -4,10 +4,10 @@ import { Reveal } from "@/components/motion";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { CopyEmail } from "@/components/contact/CopyEmail";
 import { accentStyles } from "@/components/ui/accent";
+import { CvCard } from "@/components/ui/CvCard";
 import { TitleWithEm } from "@/components/ui/text";
-import { formatSize, getCv } from "@/data/cv";
 import { site } from "@/data/site";
-import { getDictionary, hasLocale, otherLocale, t } from "@/i18n";
+import { getDictionary, hasLocale, t } from "@/i18n";
 import { alternatesFor } from "@/i18n/metadata";
 
 export async function generateMetadata(props: PageProps<"/[lang]/contact">): Promise<Metadata> {
@@ -34,11 +34,7 @@ export default async function ContactPage(props: PageProps<"/[lang]/contact">) {
 
   const availability = [contact.available, dict.site.lookingFor, dict.site.city].filter(Boolean).join(" · ");
 
-  // CV : la langue de la page d'abord, l'autre en lien secondaire.
-  const cv = getCv(lang);
-  const otherCv = getCv(otherLocale(lang));
-  const size = (bytes: number) => formatSize(bytes, contact.cv.sizeUnit, lang);
-  const { blue, cream } = accentStyles;
+  const { cream } = accentStyles;
 
   const elsewhere = [
     linkedin && { href: linkedin, label: dict.footer.links.linkedin },
@@ -133,39 +129,7 @@ export default async function ContactPage(props: PageProps<"/[lang]/contact">) {
                 </ul>
               )}
 
-              <div className={`mt-2 flex flex-col gap-5 rounded-3xl p-6 md:p-7 ${blue.surface}`}>
-                <h2 className={`m-0 text-[15px] font-semibold ${blue.soft}`}>{contact.cv.title}</h2>
-                <a
-                  href={cv.href}
-                  download
-                  type="application/pdf"
-                  className="group flex items-center justify-between gap-4"
-                >
-                  <span className="flex flex-col gap-1">
-                    <span className="font-display text-[26px] leading-tight tracking-[-0.01em] md:text-[32px]">
-                      {contact.cv.download}
-                    </span>
-                    <span className={`text-[15px] font-semibold ${blue.soft}`}>
-                      {t(contact.cv.file, { lang: contact.cv.lang, size: size(cv.bytes) })}
-                    </span>
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="flex size-12 shrink-0 items-center justify-center rounded-full bg-yellow text-xl text-ink transition-transform group-hover:translate-y-0.5 md:size-14"
-                  >
-                    ↓
-                  </span>
-                </a>
-                <a
-                  href={otherCv.href}
-                  download
-                  type="application/pdf"
-                  hrefLang={otherCv.lang}
-                  className="inline-flex min-h-11 items-center self-start text-[15px] font-semibold underline decoration-2 underline-offset-4"
-                >
-                  {contact.cv.other} · PDF · {size(otherCv.bytes)}
-                </a>
-              </div>
+              <CvCard lang={lang} labels={contact.cv} className="mt-2" />
             </aside>
           </Reveal>
         </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { site } from "@/data/site";
+import { CvCard } from "@/components/ui/CvCard";
 import { SiteFooter } from "@/components/ui/SiteFooter";
 import { paragraphs, withGuillemets } from "@/components/ui/text";
 import { getDictionary, hasLocale } from "@/i18n";
@@ -68,6 +69,7 @@ export default async function ProfilePage(props: PageProps<"/[lang]/profil">) {
               )}
             </Reveal>
 
+            <div className="flex flex-col gap-3.5">
             <Stagger>
               <dl className="m-0 grid grid-cols-2 content-start gap-3.5">
               {tiles.map((tile, i) => (
@@ -87,6 +89,10 @@ export default async function ProfilePage(props: PageProps<"/[lang]/profil">) {
               ))}
               </dl>
             </Stagger>
+            <Reveal delay={0.2}>
+              <CvCard lang={lang} labels={dict.contact.cv} />
+            </Reveal>
+            </div>
           </div>
         </section>
       </main>

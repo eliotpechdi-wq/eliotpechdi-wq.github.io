@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "@/components/motion";
+import { getCv } from "@/data/cv";
 import { site } from "@/data/site";
 import { localePath, type Dictionary, type Locale } from "@/i18n";
 import { TitleWithEm } from "./text";
@@ -17,6 +18,7 @@ export function contactLinks(labels: Dictionary["footer"]["links"]) {
 /** Pied de page « Parlons-en. » : le titre mène à la page contact. */
 export function SiteFooter({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const links = contactLinks(dict.footer.links);
+  const cv = getCv(lang);
 
   // Le point final en italique jaune (footer.headlineEm), comme le titleEm des titres.
   const headline = (
@@ -50,6 +52,11 @@ export function SiteFooter({ dict, lang }: { dict: Dictionary; lang: Locale }) {
                   </a>
                 </li>
               ))}
+              <li>
+                <a href={cv.href} download type="application/pdf" className="inline-flex min-h-11 items-center">
+                  {dict.footer.links.cv}
+                </a>
+              </li>
             </ul>
           )}
           <p className="m-0 inline-flex min-h-11 items-center">
