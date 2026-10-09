@@ -55,7 +55,7 @@ export default async function ProjectPage(props: PageProps<"/[lang]/projets/[slu
     { label: ui.facts.role, value: project.role },
     { label: ui.facts.team, value: project.team },
     { label: ui.facts.duration, value: project.duration },
-    { label: ui.facts.tools, value: project.tools.join(", ") },
+    { label: ui.facts.tools, value: project.tools.join(" / ") },
   ].filter((m) => m.value);
 
   return (

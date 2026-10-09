@@ -53,14 +53,14 @@
         "field": "Work · Yacht refit",
         "summary": "Seven months at a shipyard: surveys, 3D modelling and follow-up on some twenty refit jobs, from €30k to €650k.",
         "role": "Assistant refit project manager",
-        "team": "With the workshop, the naval architect and the client",
-        "duration": "7 months (internship)",
+        "team": "With the workshop and the client",
+        "duration": "7 months (final-year internship)",
         "tools": [
           "Fusion 360",
-          "on-site measurements",
-          "technical drawings",
-          "subcontracting",
-          "quotes"
+          "On-site measurements",
+          "Technical drawings",
+          "Subcontracting",
+          "Quotes"
         ],
         "cover": {
           "alt": "3D render of a six-cylinder Scania engine sitting on its welded steel cradle, with the reversing gearbox at the back.",
@@ -77,7 +77,7 @@
           },
           {
             "title": "Approach",
-            "body": "There is often no drawing to start from. For the bow thruster support, I started from measurements taken on the boat. I modelled the part, checked how the loads were transferred, then it was fabricated and welded.\n\nSame method for the welded engine cradles, the adaptation of shaft lines and the addition of hydraulic power take-offs: measure, model, draw up the plans, get it made.",
+            "body": "There was often no drawing to start from. For the bow thruster support, I started from measurements taken on the boat. I modelled the part, checked how the loads were transferred, then it was fabricated and welded.\n\nSame method for the welded engine cradles, the adaptation of shaft lines and the addition of hydraulic power take-offs: measure, model, draw up the plans, get it made.",
             "image": {
               "alt": "Dimensioned drawing of a circular welded cap in 316 stainless steel: three views, an A-A section and a title block.",
               "caption": "Drawing of a welded cap in 316 stainless steel, general tolerance ±0.1 mm."
@@ -85,7 +85,7 @@
           },
           {
             "title": "Result",
-            "body": "The transport cradle and its reinforcements: designed in under a week, then fabricated and fitted under the hull.\n\nI also prepared a twin-engine repowering and the replacement of a keel damaged in an accident. There, everything comes down to integration on board, working with the naval architect, the installer and the foundry.",
+            "body": "The transport cradle and its reinforcements: designed in under a week, then fabricated and fitted under the hull.\n\nI also prepared a twin-engine repowering and the replacement of a keel damaged in an accident. There, everything came down to integration on board, working with the naval architect, the installer and the foundry.",
             "image": {
               "alt": "Left, a photo of a white metal cradle under the hull of a sailboat sitting on a trailer; right, its 3D model.",
               "caption": "The transport cradle under the hull, next to its 3D model."
@@ -100,13 +100,11 @@
         "summary": "Taking over late or stalled projects in a prototyping unit, and moving fast when it counts.",
         "role": "Prototyping engineer",
         "team": "Cross-functional prototyping unit",
-        "duration": "6 months",
+        "duration": "6 months (fixed-term contract)",
         "tools": [
-          "Mechanical design",
-          "hydraulics",
-          "electronics",
-          "subcontracting",
-          "testing"
+          "Mechanical, hydraulic and electronic design",
+          "Subcontracting",
+          "Testing"
         ],
         "steps": [
           {
@@ -130,7 +128,7 @@
         "summary": "Predictive maintenance: from sensor data to a model that recognises a machine’s operating mode.",
         "role": "Full Python pipeline, written solo",
         "team": "Group project",
-        "duration": "≈ 2 months",
+        "duration": "About 2 months",
         "tools": [
           "ESP32",
           "MPU6050",
@@ -138,7 +136,7 @@
           "MQTT (Mosquitto)",
           "Python",
           "scikit-learn",
-          "Ripser / Persim"
+          "Ripser and Persim"
         ],
         "cover": {
           "alt": "Confusion matrix over five classes from lowest to highest; 69 of the 72 test windows sit on the diagonal.",
@@ -163,7 +161,7 @@
           },
           {
             "title": "Result",
-            "body": "On the 20% of windows held out for testing, the random forest correctly classifies 69 out of 72, or about 96%. The few errors occur between neighbouring modes; the “highest” class, with very little data, remains the weakest.",
+            "body": "On the 20% of windows held out for testing, the random forest correctly classifies 69 out of 72, or about 95%. The few errors occur between neighbouring modes; the “highest” class, with very little data, remains the weakest.",
             "image": {
               "alt": "Decision tree about ten levels deep, exported from scikit-learn.",
               "caption": "One of the decision trees in the random forest."
@@ -178,7 +176,7 @@
         "summary": "Finding a microplastic-free infill for Racing 92’s artificial pitches that behaves like the current one.",
         "role": "MATLAB analysis pipeline, written solo",
         "team": "Group project",
-        "duration": "≈ 2 months",
+        "duration": "About 2 months",
         "tools": [
           "Compression testing",
           "MATLAB"
@@ -221,7 +219,7 @@
         "summary": "Choosing the material–process pairing, designing in CATIA and comparing tests with simulation for a prosthetic foot.",
         "role": "Full CAD in CATIA",
         "team": "Team of 3",
-        "duration": "≈ 3 months",
+        "duration": "About 3 months",
         "tools": [
           "CES EduPack (Granta)",
           "CATIA",
@@ -263,15 +261,15 @@
       "san-lucia-off-grid": {
         "title": "A 100% renewable city",
         "titleEm": "renewable",
-        "field": "Energy · UQ",
+        "field": "Energy · University of Queensland",
         "summary": "Sizing the wind and solar mix of a fictional isolated city so it can run off-grid, hour by hour.",
         "role": "Analysis and sizing, individual report",
-        "team": "Solo",
+        "team": "Individual project",
         "duration": "A few weeks",
         "tools": [
           "Excel",
-          "pivot tables",
-          "hourly profiles (8,760 h)"
+          "Pivot tables",
+          "Hourly profiles (8,760 h)"
         ],
         "cover": {
           "alt": "Demand and generation curves for an average January–February day: generation exceeds demand in the morning and falls below it in the evening.",
@@ -288,7 +286,7 @@
           },
           {
             "title": "Approach",
-            "body": "Next, generation. A 5.6 MW wind site also runs at night; a 1 MW solar site only produces during the day. With the storage size fixed, I went for the steadier source: about 80% wind and 20% solar.\n\nI assumed a 70% round-trip efficiency, on the basis that all the energy goes through storage once. Then I looked for the multiplier that covers the worst months, January and February.",
+            "body": "Next, generation. A 5.6 MW wind site also runs at night; a 1 MW solar site only produces during the day. With the storage size fixed, I went for the steadier source: about 80% wind and 20% solar in the energy produced.\n\nI assumed a 70% round-trip efficiency, on the basis that all the energy goes through storage once. Then I looked for the multiplier that covers the worst months, January and February.",
             "image": {
               "alt": "Power profiles over an average day: the wind site produces between 1.6 and 3.1 MW all day, the solar site peaks at 0.66 MW around midday.",
               "caption": "Average day for a 5.6 MW wind site and a 1 MW solar site."
@@ -296,7 +294,7 @@
           },
           {
             "title": "Result",
-            "body": "It takes 57 wind turbines of 5.6 MW and 57 solar units of 1 MW: 376.2 MW installed, 319.2 MW of it wind. In January–February, generation covers 97% of demand: 5,535 MWh a day for 5,688 MWh required.\n\nThe rest of the year, the morning surplus is huge. I suggested selling it back to the grid. And I pointed out a limitation: pumped-hydro storage in such a dry country is probably a bad idea. Compressed air is an option worth exploring.",
+            "body": "It takes 57 wind turbines of 5.6 MW and 57 solar units of 1 MW: 376.2 MW installed, 319.2 MW of it wind. In January–February, generation covers 97% of demand: 5,535 MWh a day for 5,688 MWh required.\n\nThe rest of the year, the morning surplus is huge. I suggested storing it or putting it to other uses. And I pointed out a limitation: pumped-hydro storage in such a dry country is probably a bad idea. Compressed air is an option worth exploring.",
             "image": {
               "alt": "Demand and generation curves for an average day of the year: a large surplus from 6 am to 4 pm, a slight deficit in the evening.",
               "caption": "Average day over the year: a big surplus in the morning, a slight deficit in the evening. Figures from my report, replotted."
@@ -314,9 +312,9 @@
         "duration": "One semester",
         "tools": [
           "Value Proposition Canvas",
-          "user journey",
-          "market sizing",
-          "mobile app prototype"
+          "User journey",
+          "Market sizing",
+          "Mobile app prototype"
         ],
         "cover": {
           "alt": "Flowchart for handling an incident: triage between minor and major incidents, a tradesperson sent out, rehousing and refund if needed, within 24 business hours at most.",
@@ -360,7 +358,7 @@
         "tools": [
           "CATIA",
           "Excel",
-          "kinematic diagrams"
+          "Kinematic diagrams"
         ],
         "cover": {
           "alt": "Section A-A of the brake disc at 1:2 scale, with diameters of 70, 100 and 110 mm and six bolt holes.",
@@ -377,7 +375,7 @@
           },
           {
             "title": "Approach",
-            "body": "We drew 13 kinematic diagrams, from A to M, and scored each one on 3 criteria: robustness, ease of assembly, footprint.\n\nThen came the sizing. 204 N·m of braking torque has to be transmitted to the wheel. We routed it through 6 M8 bolts on a 65 mm diameter circle: 5,400 N of load per bolt, with a tightening torque of 12.7 N·m.",
+            "body": "We drew 13 kinematic diagrams, from A to M, and scored each one on 3 criteria: robustness, ease of assembly, footprint.\n\nThen came the sizing. 204 N·m of braking torque has to be transmitted to the wheel. We routed it through 6 M8 bolts: 5,400 N of load per bolt, with a tightening torque of 12.7 N·m.",
             "image": {
               "alt": "Four hand-drawn kinematic diagrams labelled A, B, C and D, with joints in blue and bearings in green.",
               "caption": "Four of the 13 kinematic diagram variants, drawn by hand."

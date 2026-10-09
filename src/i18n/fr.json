@@ -53,14 +53,14 @@
         "field": "Pro · Refit naval",
         "summary": "Sept mois en chantier naval : relevés, modélisation et suivi d’une vingtaine d’affaires de refit, de 30 k€ à 650 k€.",
         "role": "Assistant chef de projet refit",
-        "team": "Avec l’atelier, l’architecte naval et le client",
-        "duration": "7 mois (stage)",
+        "team": "Avec l’atelier et le client",
+        "duration": "7 mois (stage de fin d’études)",
         "tools": [
           "Fusion 360",
-          "relevés de cotes",
-          "mise en plan",
-          "sous-traitance",
-          "devis"
+          "Relevés de cotes",
+          "Mise en plan",
+          "Sous-traitance",
+          "Devis"
         ],
         "cover": {
           "alt": "Rendu 3D d’un moteur Scania six cylindres posé sur son berceau mécano-soudé, avec l’inverseur à l’arrière.",
@@ -77,7 +77,7 @@
           },
           {
             "title": "Démarche",
-            "body": "Souvent, il n’y a aucun plan de départ. Pour le support du propulseur d’étrave, je suis parti de relevés de cotes pris sur le bateau. J’ai modélisé la pièce et vérifié les reprises d’efforts ; elle a ensuite été fabriquée et soudée.\n\nMême méthode pour les berceaux moteurs mécano-soudés, l’adaptation des lignes d’arbres et l’ajout de prises de force hydrauliques : relever, modéliser, mettre en plan, faire fabriquer.",
+            "body": "Souvent, il n’y avait aucun plan de départ. Pour le support du propulseur d’étrave, je suis parti de relevés de cotes pris sur le bateau. J’ai modélisé la pièce et vérifié les reprises d’efforts ; elle a ensuite été fabriquée et soudée.\n\nMême méthode pour les berceaux moteurs mécano-soudés, l’adaptation des lignes d’arbres et l’ajout de prises de force hydrauliques : relever, modéliser, mettre en plan, faire fabriquer.",
             "image": {
               "alt": "Mise en plan cotée d’un chapeau soudé circulaire en inox 316 : trois vues, une coupe A-A et un cartouche.",
               "caption": "Mise en plan d’un chapeau soudé en inox 316, tolérance générale ±0,1 mm."
@@ -85,7 +85,7 @@
           },
           {
             "title": "Résultat",
-            "body": "Le berceau de transport et ses renforts : conçus en moins d’une semaine, puis fabriqués et mis en place sous la coque.\n\nJ’ai aussi préparé une remotorisation bimoteur et le remplacement d’une quille après sinistre. Là, tout se joue sur l’intégration à bord, avec l’architecte naval, l’installateur et les fondeurs.",
+            "body": "Le berceau de transport et ses renforts : conçus en moins d’une semaine, puis fabriqués et mis en place sous la coque.\n\nJ’ai aussi préparé une remotorisation bimoteur et le remplacement d’une quille après sinistre. Là, tout se jouait sur l’intégration à bord, avec l’architecte naval, l’installateur et les fondeurs.",
             "image": {
               "alt": "À gauche, photo d’un berceau métallique blanc sous la coque d’un voilier posé sur remorque ; à droite, sa modélisation 3D.",
               "caption": "Le berceau de transport sous la coque, à côté de sa modélisation."
@@ -100,13 +100,11 @@
         "summary": "Reprendre des projets en retard ou bloqués dans une cellule de prototypage, et aller vite quand il le faut.",
         "role": "Ingénieur prototypage",
         "team": "Cellule transverse de prototypage",
-        "duration": "6 mois",
+        "duration": "6 mois (CDD)",
         "tools": [
-          "Études mécaniques",
-          "hydraulique",
-          "électronique",
-          "sous-traitance",
-          "essais"
+          "Études mécaniques, hydrauliques, électroniques",
+          "Sous-traitance",
+          "Essais"
         ],
         "steps": [
           {
@@ -130,7 +128,7 @@
         "summary": "Maintenance prédictive : des données capteurs jusqu’à un modèle qui reconnaît le régime de fonctionnement d’une machine.",
         "role": "Chaîne Python complète, écrite seul",
         "team": "Projet de groupe",
-        "duration": "≈ 2 mois",
+        "duration": "Environ 2 mois",
         "tools": [
           "ESP32",
           "MPU6050",
@@ -138,7 +136,7 @@
           "MQTT (Mosquitto)",
           "Python",
           "scikit-learn",
-          "Ripser / Persim"
+          "Ripser et Persim"
         ],
         "cover": {
           "alt": "Matrice de confusion sur cinq classes, de « lowest » à « highest » ; 69 fenêtres de test sur 72 sont sur la diagonale.",
@@ -163,7 +161,7 @@
           },
           {
             "title": "Résultat",
-            "body": "Sur les 20 % de fenêtres gardées pour le test, la forêt aléatoire classe correctement 69 fenêtres sur 72, soit environ 96 %. Les rares erreurs se font entre régimes voisins ; la classe « highest », avec très peu de données, reste la plus fragile.",
+            "body": "Sur les 20 % de fenêtres gardées pour le test, la forêt aléatoire classe correctement 69 fenêtres sur 72, soit environ 95 %. Les rares erreurs se font entre régimes voisins ; la classe « highest », avec très peu de données, reste la plus fragile.",
             "image": {
               "alt": "Arbre de décision d’une dizaine de niveaux, exporté depuis scikit-learn.",
               "caption": "L’un des arbres de décision de la forêt aléatoire."
@@ -178,7 +176,7 @@
         "summary": "Trouver, pour le Racing 92, un remplissage de terrain synthétique sans microplastique qui se comporte comme la solution actuelle.",
         "role": "Chaîne d’analyse MATLAB, écrite seul",
         "team": "Projet de groupe",
-        "duration": "≈ 2 mois",
+        "duration": "Environ 2 mois",
         "tools": [
           "Essais de compression",
           "MATLAB"
@@ -221,7 +219,7 @@
         "summary": "Choisir le couple matériau–procédé, concevoir sous CATIA et confronter essais et simulation pour un pied prothétique.",
         "role": "CAO complète sous CATIA",
         "team": "Équipe de trois",
-        "duration": "≈ 3 mois",
+        "duration": "Environ 3 mois",
         "tools": [
           "CES EduPack (Granta)",
           "CATIA",
@@ -263,15 +261,15 @@
       "san-lucia-off-grid": {
         "title": "Une ville 100 % renouvelable",
         "titleEm": "renouvelable",
-        "field": "Énergie · UQ",
+        "field": "Énergie · University of Queensland",
         "summary": "Dimensionner le mix éolien et solaire d’une ville isolée fictive pour qu’elle vive hors réseau, heure par heure.",
         "role": "Analyse et dimensionnement, rapport individuel",
-        "team": "Seul",
+        "team": "Projet individuel",
         "duration": "Quelques semaines",
         "tools": [
           "Excel",
-          "tableaux croisés dynamiques",
-          "profils horaires (8 760 h)"
+          "Tableaux croisés dynamiques",
+          "Profils horaires (8 760 h)"
         ],
         "cover": {
           "alt": "Courbes de demande et de production sur une journée moyenne de janvier-février : la production dépasse la demande le matin et passe en dessous le soir.",
@@ -288,7 +286,7 @@
           },
           {
             "title": "Démarche",
-            "body": "Puis la production. Un site éolien de 5,6 MW tourne aussi la nuit ; un site solaire de 1 MW ne produit qu’en journée. La taille du stockage étant fixée, j’ai misé sur le plus régulier : environ 80 % d’éolien et 20 % de solaire.\n\nJ’ai compté un rendement aller-retour de 70 %, en supposant que toute l’énergie passe une fois par le stockage. Puis j’ai cherché le multiplicateur qui couvre les pires mois, janvier et février.",
+            "body": "Puis la production. Un site éolien de 5,6 MW tourne aussi la nuit ; un site solaire de 1 MW ne produit qu’en journée. La taille du stockage étant fixée, j’ai misé sur le plus régulier : environ 80 % d’éolien et 20 % de solaire dans l’énergie produite.\n\nJ’ai compté un rendement aller-retour de 70 %, en supposant que toute l’énergie passe une fois par le stockage. Puis j’ai cherché le multiplicateur qui couvre les pires mois, janvier et février.",
             "image": {
               "alt": "Profils de puissance sur une journée moyenne : le site éolien produit entre 1,6 et 3,1 MW toute la journée, le site solaire monte à 0,66 MW vers midi.",
               "caption": "Journée moyenne d’un site éolien de 5,6 MW et d’un site solaire de 1 MW."
@@ -296,7 +294,7 @@
           },
           {
             "title": "Résultat",
-            "body": "Il faut 57 éoliennes de 5,6 MW et 57 unités solaires de 1 MW : 376,2 MW installés, dont 319,2 MW d’éolien. En janvier-février, la production couvre 97 % de la demande, soit 5 535 MWh par jour pour 5 688 MWh demandés.\n\nLe reste de l’année, le surplus du matin est énorme. J’ai proposé de le revendre au réseau. Et j’ai pointé une limite : stocker par pompage d’eau, dans un pays aussi sec, est sans doute une mauvaise idée. L’air comprimé est une piste.",
+            "body": "Il faut 57 éoliennes de 5,6 MW et 57 unités solaires de 1 MW : 376,2 MW installés, dont 319,2 MW d’éolien. En janvier-février, la production couvre 97 % de la demande, soit 5 535 MWh par jour pour 5 688 MWh demandés.\n\nLe reste de l’année, le surplus du matin est énorme. J’ai proposé de le stocker ou de le valoriser autrement. Et j’ai pointé une limite : stocker par pompage d’eau, dans un pays aussi sec, est sans doute une mauvaise idée. L’air comprimé est une piste.",
             "image": {
               "alt": "Courbes de demande et de production sur une journée moyenne de l’année : large surplus de 6 h à 16 h, léger déficit en soirée.",
               "caption": "Journée moyenne sur l’année : gros surplus le matin, léger déficit le soir. Valeurs de mon rapport, retracées."
@@ -314,9 +312,9 @@
         "duration": "Un semestre",
         "tools": [
           "Value Proposition Canvas",
-          "parcours utilisateur",
-          "dimensionnement de marché",
-          "prototype d’application mobile"
+          "Parcours utilisateur",
+          "Dimensionnement de marché",
+          "Prototype d’application mobile"
         ],
         "cover": {
           "alt": "Logigramme du traitement d’un incident : tri entre incident mineur et majeur, intervention d’un artisan, relogement et remboursement si besoin, en 24 heures ouvrées au maximum.",
@@ -360,7 +358,7 @@
         "tools": [
           "CATIA",
           "Excel",
-          "schémas cinématiques"
+          "Schémas cinématiques"
         ],
         "cover": {
           "alt": "Coupe A-A du disque de frein à l’échelle 1:2, avec ses cotes de diamètre 70, 100 et 110 mm et six trous de vis.",
@@ -377,7 +375,7 @@
           },
           {
             "title": "Démarche",
-            "body": "Nous avons dessiné 13 schémas cinématiques, de A à M, et noté chacun sur trois critères : robustesse, montabilité, encombrement.\n\nEnsuite, le dimensionnement. Il faut transmettre 204 N·m de couple de freinage à la roue. Nous l’avons fait passer par 6 vis M8 sur un cercle de 65 mm de diamètre : 5 400 N d’effort à assurer par vis, avec un couple de serrage de 12,7 N·m.",
+            "body": "Nous avons dessiné 13 schémas cinématiques, de A à M, et noté chacun sur trois critères : robustesse, montabilité, encombrement.\n\nEnsuite, le dimensionnement. Il faut transmettre 204 N·m de couple de freinage à la roue. Nous l’avons fait passer par 6 vis M8 : 5 400 N d’effort à assurer par vis, avec un couple de serrage de 12,7 N·m.",
             "image": {
               "alt": "Quatre schémas cinématiques dessinés à la main, notés A, B, C et D, avec les liaisons en bleu et les roulements en vert.",
               "caption": "Quatre des 13 variantes de schéma cinématique, dessinées à la main."
