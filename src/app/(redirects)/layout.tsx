@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { site } from "@/data/site";
 import { SITE_URL } from "@/i18n/metadata";
+import { SecurityMeta } from "@/components/security/SecurityMeta";
 import { ThemeScript } from "@/components/theme/script";
 import "../globals.css";
 
@@ -14,6 +15,7 @@ export default function RedirectLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
+        <SecurityMeta />
         <ThemeScript />
       </head>
       <body className="min-h-dvh bg-bg font-sans text-fg">{children}</body>

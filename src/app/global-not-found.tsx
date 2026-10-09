@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { LOCALES, getDictionary, localePath } from "@/i18n";
+import { SecurityMeta } from "@/components/security/SecurityMeta";
 import { THEME_COLORS, ThemeScript } from "@/components/theme/script";
 import { fontVariables } from "./fonts";
 import "./globals.css";
@@ -27,6 +28,7 @@ export default function GlobalNotFound() {
   return (
     <html lang="fr" className={`${fontVariables} antialiased`} suppressHydrationWarning>
       <head>
+        <SecurityMeta />
         <ThemeScript />
       </head>
       <body className="min-h-dvh bg-bg font-sans text-fg">

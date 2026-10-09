@@ -1,0 +1,4 @@
+Contact: mailto:eliot.pechdi@gmail.com
+Expires: 2027-10-09T00:00:00Z
+Preferred-Languages: fr, en
+Canonical: https://eliotpechdi-wq.github.io/.well-known/security.txt

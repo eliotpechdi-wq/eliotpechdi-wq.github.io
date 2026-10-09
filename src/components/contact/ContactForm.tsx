@@ -28,6 +28,11 @@ type Field = "name" | "email" | "message";
 type Status = "idle" | "sending" | "success" | "error";
 
 const ENDPOINT = "https://api.web3forms.com/submit";
+
+/** Longueurs maximales (e-mail : limite de la RFC 5321). */
+const MAX_LENGTH = { name: 100, email: 254, message: 5000 } as const;
+/** Délai minimal entre l'affichage du formulaire et l'envoi (anti-robot). */
+const MIN_FILL_MS = 3000;
 const SUBJECTS = ["job", "freelance", "other"] as const;
 
 /** Remplace {email} par un lien mailto (le reste du texte reste tel quel). */
@@ -79,6 +84,12 @@ export function ContactForm({
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
   const [sentTo, setSentTo] = useState("");
+  // Anti-spam : un robot remplit et envoie le formulaire en une fraction de
+  // seconde ; un humain met bien plus de MIN_FILL_MS à écrire son message.
+  const mountedAt = useRef(0);
+  useEffect(() => {
+    mountedAt.current = Date.now();
+  }, []);
 
   useEffect(() => {
     if (status === "success") successRef.current?.focus();
@@ -117,12 +128,20 @@ export function ContactForm({
     }
 
     const data = new FormData(form);
-    const name = String(data.get("name"));
+    // Retours à la ligne et tabulations retirés : le nom part dans l'objet de l'e-mail.
+    const name = String(data.get("name")).replace(/[\u0000-\u001f\u007f]+/g, " ").trim();
     const from = String(data.get("email"));
     const choice = data.get("objet") as (typeof SUBJECTS)[number] | null;
     const subjectLabel = choice ? labels.subject.options[choice] : labels.subject.fallback;
 
     setStatus("sending");
+    // Envoi trop rapide pour un humain : on n'appelle pas Web3Forms et on
+    // affiche le même succès, pour ne rien apprendre au robot.
+    if (Date.now() - mountedAt.current < MIN_FILL_MS) {
+      setSentTo(from);
+      setStatus("success");
+      return;
+    }
     try {
       const res = await fetch(ENDPOINT, {
         method: "POST",
@@ -206,6 +225,7 @@ export function ContactForm({
             type="text"
             required
             autoComplete="name"
+            maxLength={MAX_LENGTH.name}
             aria-invalid={errors.name ? true : undefined}
             aria-describedby={describedBy("name")}
             onChange={(e) => revalidate(e.currentTarget)}
@@ -229,6 +249,7 @@ export function ContactForm({
             type="email"
             required
             autoComplete="email"
+            maxLength={MAX_LENGTH.email}
             spellCheck={false}
             aria-invalid={errors.email ? true : undefined}
             aria-describedby={describedBy("email")}
@@ -253,6 +274,7 @@ export function ContactForm({
           name="message"
           required
           rows={7}
+          maxLength={MAX_LENGTH.message}
           aria-invalid={errors.message ? true : undefined}
           aria-describedby={describedBy("message")}
           onChange={(e) => revalidate(e.currentTarget)}

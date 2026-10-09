@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
+import { SecurityMeta } from "@/components/security/SecurityMeta";
 import { THEME_COLORS, ThemeScript } from "@/components/theme/script";
 import { SiteHeader } from "@/components/ui/SiteHeader";
 import { site } from "@/data/site";
@@ -49,6 +50,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
     // suppressHydrationWarning : le script du <head> pose data-theme avant React.
     <html lang={lang} className={`${fontVariables} antialiased`} suppressHydrationWarning>
       <head>
+        <SecurityMeta />
         <ThemeScript />
       </head>
       <body className="min-h-dvh bg-bg font-sans text-fg">
